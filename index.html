@@ -4,42 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MitraKU</title>
+    <title>MitraKU - Daftar Mitra</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
 
-    <link rel="stylesheet" href="assets/vendors/iconly/bold.css">
+    <link rel="stylesheet" href="assets/vendors/simple-datatables/style.css">
 
     <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/vendors/font-awesome/css/all.min.css">
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
-    <style>
-        .grid-container {
-          display: grid;
-          grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto;
-          background-color: #ffffff;
-          padding: 10px;
-        }
-        
-        .grid-container > div {
-          background-color: rgb(175, 176, 177);
-          text-align: center;
-          padding: 10px 0;
-          font-size: 30px;
-          border-width: 2px;
-          border-style: solid;
-          border-radius: 2px;
-        }
-
-        .grid-container:hover > div {
-          background-color: rgb(126, 191, 255);
-        }
-
-        </style>
 </head>
 
 <body>
@@ -66,21 +43,21 @@
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
 
-                        <li class="sidebar-item active ">
+                        <li class="sidebar-item active">
                             <a href="index.html" class='sidebar-link'>
                                 <i class="fa-solid fa-table-cells-large"></i>
                                 <span>Beranda</span>
                             </a>
                         </li>
 
-                        <li class="sidebar-item  ">
+                        <li class="sidebar-item">
                             <a href="daftarMitra.html" class='sidebar-link'>
                                 <i class="fa-solid fa-address-book"></i>
                                 <span>Daftar Mitra</span>
                             </a>
                         </li>
 
-                        <li class="sidebar-item  ">
+                        <li class="sidebar-item ">
                             <a href="daftarKegiatan.html" class='sidebar-link'>
                                 <i class="fa-solid fa-clipboard-list"></i>
                                 <span>Daftar Kegiatan</span>
@@ -424,7 +401,7 @@
             </div>
         </div>
         <div id="main" class='layout-navbar'>
-            <header class='mb-1'>
+            <header class='mb-3'>
                 <nav class="navbar navbar-expand navbar-light ">
                     <div class="container-fluid">
                         <a href="#" class="burger-btn d-block">
@@ -502,55 +479,89 @@
             <div id="main-content">
                 <div class="page-heading">
                     <div class="page-title">
-                        <div class="row">
-                            <div class="col-12 col-md-6 order-md-1 order-last mb-2">
-                                <h3>Matriks Kegiatan</h3>
-                            </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6 order-md-1 order-last mb-2">
+                            <h3>Matriks Kegiatan</h3>
                         </div>
+                    </div>
                     </div>
                     <section class="section">
                         <div class="card">
-                            <div class="card-header">
-                                
-                            </div>
-                            <div class="card-body">
-                                <table class="table table-striped" id="table1">
-                                    <thead>
-                                        <tr>
-                                            <th>Nama Mitra</th>
-                                            <th>Januari</th>
-                                            <th>Febrruari</th>
-                                            
-                                        </tr>
-                                    </thead>
-                                    
-                                        
-                                    
-                                </table>
-                                
-                            </div>
+                        <div class="card-header">
+                            <!--<section class="float-start">
+                                <button type="button" class="btn btn-primary btn-sm me-1 mb-1">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </section>-->
+                            <section class="float-end">
+                                <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle me-1" type="button"
+                                        id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        Desa
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Sutera</a>
+                                        <a class="dropdown-item" href="#">Pangkalan Buton</a>
+                                        <a class="dropdown-item" href="#">Pampang Harapan</a>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="float-end">
+                                <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle me-1" type="button"
+                                        id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        Kecamatan
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Sukadana</a>
+                                        <a class="dropdown-item" href="#">Simpang Hilir</a>
+                                        <a class="dropdown-item" href="#">Teluk Batang</a>
+                                    </div>
+                                </div>
+                            </section>
+                              
                         </div>
-    
-                    </section>
-                    <section>
-                        <div class="grid-container">
-                        
-                            <div class="item1">1</div>
-                            <div class="item2">2</div>
-                            <div class="item3">3</div>  
-                            <div class="item4">4</div>
-                            <div class="item5">5</div>
-                            <div class="item6">6</div>
-                            <div class="item7">7</div>
-                            <div class="item8">8</div>
-                            <div class="item9">9</div>
-                            <div class="item9">10</div>
-                            <div class="item9">11</div>
-                            <div class="item9">12</div>
-                        
-                            
-
-                          </div>
+                        <div class="card-body">
+                            <table class="table table-striped" id="table1">
+                                <thead>
+                                    <tr>
+                                        <th>Nama Mitra</th>
+                                        <th>Januari</th>
+                                        <th>Februari</th>
+                                        <th>Maret</th>
+                                        <th>April</th>
+                                        <th>Mei</th>
+                                        <th>Juni</th>
+                                        <th>Juli</th>
+                                        <th>Agustus</th>
+                                        <th>September</th>
+                                        <th>Oktober</th>
+                                        <th>November</th>
+                                        <th>Desember</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Aang Jusnadi</td>
+                                        <td><button>aaa</button></td>
+                                        <td><button>aaa</button></td>
+                                        <td><button>aaa</button></td>
+                                        <td><button>aaa</button></td>
+                                        <td><button>aaa</button></td>
+                                        <td><button>aaa</button></td>
+                                        <td><button>aaa</button></td>
+                                        <td><button>aaa</button></td>
+                                        <td><button>aaa</button></td>
+                                        <td><button>aaa</button></td>
+                                        <td><button>aaa</button></td>
+                                        <td><button>aaa</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        </div>
                     </section>
                 </div>
 
@@ -561,14 +572,36 @@
                         </div>
                     </div>
                 </footer>
+                
             </div>
         </div>
     </div>
     <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
 
-    <script src="assets/vendors/apexcharts/apexcharts.js"></script>
-    <script src="assets/js/pages/dashboard.js"></script>
+    <script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
+    <script>
+        // Simple Datatable
+        let table1 = document.querySelector('#table1');
+        let dataTable = new simpleDatatables.DataTable(table1);
+        $(document).ready(function(){
+
+$('#table1').DataTable({
+    "language": {
+        "lengthMenu": "Menampilkan _MENU_ Data",
+        "zeroRecords": "Data Tidak Ditemukan",
+        "info": "Menampilkan _PAGE_ Dari _PAGES_ Halaman",
+        "infoEmpty": "Tidak ada halaman",
+        "search": "Cari:",
+        "oPaginate": {
+            "sFirst":    "Pertama",
+            "sPrevious": "Sebelumnya",
+            "sNext":     "Selanjutnya",
+            "sLast":     "Terakhir"
+        }
+    }
+}); });
+    </script>
 
     <script src="assets/js/main.js"></script>
 </body>
