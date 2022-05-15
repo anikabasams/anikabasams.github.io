@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
-
+    
     <link rel="stylesheet" href="assets/vendors/simple-datatables/style.css">
 
     <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
@@ -17,6 +17,12 @@
     <link rel="stylesheet" href="assets/vendors/font-awesome/css/all.min.css">
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+    <style>
+        .nb {
+            font-size: 12px;
+            border: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -474,9 +480,49 @@
                         <div class="card">
                         <div class="card-header">
                             <section class="float-start">
-                                <button type="button" class="btn btn-primary btn-sm me-1 mb-1">
+                                <button type="button" class="btn btn-primary btn-sm me-1 mb-1" data-bs-toggle="modal" data-bs-target="#tambahKeg">
                                     <i class="fa-solid fa-plus"></i>
                                 </button>
+                                <div class="modal fade" id="tambahKeg" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalLabel">Tambah Kegiatan</h5>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="mb-3">
+                                                  <label for="namaKeg" class="form-label">Nama Kegiatan</label>
+                                                  <input type="text" class="form-control" id="namaKeg">
+                                                </div>
+                                                <div>
+                                                    <section class="float-start mb-3" style="width: 48%;">
+                                                        <label for="waktuMulai" class="form-label">Waktu Mulai</label>
+                                                        <input type="date" class="form-control" id="waktuMulai">
+                                                    </section>
+                                                    <section class="float-end mb-3" style="width: 48%;">
+                                                        <label for="waktuSelesai" class="form-label">Waktu Selesai</label>
+                                                        <input type="date" class="form-control" id="waktuSelesai">
+                                                    </section>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="angKeg" class="form-label">Anggaran Honor</label>
+                                                    <input type="number" class="form-control" id="angKeg">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <button class="btn-sm btn-secondary nb"><i class="fa-solid fa-plus" id="addRow"></i>&nbsp;Tambah Petugas</button>
+                                                    <button class="btn-sm btn-info nb"><i class="fa-solid fa-file-import"></i>&nbsp;impor Petugas</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
+                                          <button type="button" class="btn btn-primary">Tambah Kegiatan</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
                             </section>
                             <section class="float-end">
                                 <div class="dropdown">
@@ -505,8 +551,7 @@
                                         <a class="dropdown-item" href="#">Maret</a>
                                     </div>
                                 </div>
-                            </section>
-                              
+                            </section>  
                         </div>
                         <div class="card-body">
                             <table class="table table-striped" id="table1">
@@ -531,7 +576,7 @@
                                                 <span>20 Februari 2022</span>
                                             </section>
                                         </td>
-                                        <td>
+                                        <td class="text-success">
                                             <i class="fa-solid fa-clipboard-user fa-lg"></i>
                                             <span>90</span>
                                         </td>
@@ -560,7 +605,7 @@
                                                 <span>20 April 2022</span>
                                             </section>
                                         </td>
-                                        <td>
+                                        <td class="text-dark">
                                             <i class="fa-solid fa-clipboard-user fa-lg"></i>
                                             <span>30</span>
                                         </td>
@@ -589,7 +634,7 @@
                                                 <span>31 Desember 2022</span>
                                             </section>
                                         </td>
-                                        <td>
+                                        <td class="text-danger">
                                             <i class="fa-solid fa-clipboard-user fa-lg"></i>
                                             <span>80</span>
                                         </td>
@@ -632,23 +677,7 @@
         // Simple Datatable
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
-        $(document).ready(function(){
-
-$('#table1').DataTable({
-    "language": {
-        "lengthMenu": "Menampilkan _MENU_ Data",
-        "zeroRecords": "Data Tidak Ditemukan",
-        "info": "Menampilkan _PAGE_ Dari _PAGES_ Halaman",
-        "infoEmpty": "Tidak ada halaman",
-        "search": "Cari:",
-        "oPaginate": {
-            "sFirst":    "Pertama",
-            "sPrevious": "Sebelumnya",
-            "sNext":     "Selanjutnya",
-            "sLast":     "Terakhir"
-        }
-    }
-}); });
+        
     </script>
 
     <script src="assets/js/main.js"></script>
