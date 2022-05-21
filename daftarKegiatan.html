@@ -135,7 +135,7 @@
                             <h3>Daftar Kegiatan</h3>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
-                            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                            <nav aria-label="breadcrumb" class="breadcrumb-header float-end">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Daftar Kegiatan</li>
@@ -152,13 +152,13 @@
                                     <i class="fa-solid fa-plus"></i>
                                 </button>
                                 <div class="modal fade" id="tambahKeg" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg">
+                                    <div class="modal-dialog modal-dialog-scrollable modal-lg">
                                       <div class="modal-content">
                                         <div class="modal-header">
                                           <h5 class="modal-title" id="exampleModalLabel">Tambah Kegiatan</h5>
                                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
-                                        <div class="modal-body">
+                                        <div class="modal-body mb-3">
                                             <form>
                                                 <div class="mb-3">
                                                   <label for="namaKeg" class="form-label">Nama Kegiatan</label>
@@ -181,12 +181,12 @@
                                                     </section>
                                                     <section class="float-end mb-3" style="width: 48%;">
                                                         <label for="jenisHonor" class="form-label">Jenis Honor</label><br>
-                                                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="jenisHonor">
+                                                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="jenisHonor" >
                                                             <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                                                            <label class="btn btn-outline-secondary" for="btnradio1" style=" width: 180px;">Orang/Bulan (OB)</label>
+                                                            <label class="btn btn-outline-secondary text-nowrap" for="btnradio1" style="width: 11.3rem;">Orang/Bulan (OB)</label>
                                                           
                                                             <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                                                            <label class="btn btn-outline-secondary" for="btnradio2" style="width: 180px;">Dokumen</label>
+                                                            <label class="btn btn-outline-secondary text-nowrap" for="btnradio2" style="width: 11.3rem;">Dokumen</label>
                                                         </div>
                                                     </section>
                                                 </div>
@@ -198,7 +198,7 @@
                                                 <table class="table table-striped">
                                                     <thead>
                                                         <tr>
-                                                            <th>Mitra</th>
+                                                            <th>Nama Mitra</th>
                                                             <th>Beban</th>
                                                             <th>Harga Satuan</th>
                                                             <th>Total</th>
@@ -207,9 +207,18 @@
                                                     <tbody>
                                                         <tr>
                                                             <td>
-                                                                <input type="text" class="form-control form-control-sm" id="">
+                                                                <div class="dropdown">
+                                                                    <button class="btn btn-outline-secondary dropdown-toggle me-1" type="button"
+                                                                        id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                                                        aria-haspopup="true" aria-expanded="false">
+                                                                        Pilih Mitra
+                                                                    </button>
+                                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                        <a class="dropdown-item" href="#">Aang Jusnardi</a>
+                                                                    </div>
+                                                                </div>
                                                             </td>
-                                                            <td class="text-nowrap">
+                                                            <td>
                                                                 <input type="number" class="form-control form-control-sm" id="">
                                                             </td>
                                                             <td>
@@ -247,7 +256,7 @@
                                         </div>
                                       </div>
                                     </div>
-                                  </div>
+                                </div>
                             </section>
                             <section class="float-end">
                                 <div class="dropdown">
@@ -301,7 +310,7 @@
                                             </section>
                                         </td>
                                         <td class="text-success">
-                                            <i class="fa-solid fa-clipboard-user fa-lg"></i>
+                                            <i class="fa-solid fa-clipboard-user fa-lg" data-bs-toggle="modal" data-bs-target="#lihatMitra"></i>
                                             <span>90</span>
                                         </td>
                                         <td>
@@ -377,6 +386,83 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <div class="modal fade" id="lihatMitra" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">Daftar Mitra</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body mb-3">
+                                        <form>
+                                            <div class="mb-3">
+                                              <label for="namaKeg" class="form-label">Nama Kegiatan</label>
+                                              <input type="text" class="form-control" id="namaKeg" value="Survei Sosial Ekonomi Nasional">
+                                            </div>
+                                        </form>
+                                        <div>
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Nama Mitra</th>
+                                                        <th>Beban</th>
+                                                        <th>Harga Satuan</th>
+                                                        <th>Total</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-outline-secondary dropdown-toggle me-1" type="button"
+                                                                    id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                                                    aria-haspopup="true" aria-expanded="false">
+                                                                    Pilih Mitra
+                                                                </button>
+                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                    <a class="dropdown-item" href="#">Aang Jusnardi</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" class="form-control form-control-sm" id="">
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" class="form-control form-control-sm" id=""> 
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" class="form-control form-control-sm" id="">
+                                                        </td>
+                                                        <td>
+                                                            <section class="float-end">
+                                                                <button type="button" class="btn btn-sm" style="color: red;">
+                                                                    <i class="fa-solid fa-trash"></i>
+                                                                </button>
+                                                            </section>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div>
+                                            <section class="float-start">
+                                                <input type="file" class="form-control form-control-sm">
+                                            </section>
+                                            <section class="float-start" style="margin-left : 10px;">
+                                                <button class="btn-sm btn-success nb">
+                                                    <i class="fa-solid fa-file-import"></i>
+                                                    &nbsp;impor Petugas
+                                                </button>
+                                            </section>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
+                                      <button type="button" class="btn btn-primary">Tambah Kegiatan</button>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
                         </div>
                         </div>
                     </section>
