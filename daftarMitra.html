@@ -497,37 +497,105 @@
                         <div class="card">
                         <div class="card-header">
                             <section class="float-start">
-                                <button type="button" class="btn btn-primary btn-sm me-1 mb-1">
+                                <button type="button" class="btn btn-primary btn-sm me-1 mb-1" data-bs-toggle="modal" data-bs-target="#tambahMitra">
                                     <i class="fa-solid fa-plus"></i>
                                 </button>
-                            </section>
-                            <section class="float-end">
-                                <div class="dropdown">
-                                    <button class="btn btn-primary dropdown-toggle me-1" type="button"
-                                        id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        Desa
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Sutera</a>
-                                        <a class="dropdown-item" href="#">Pangkalan Buton</a>
-                                        <a class="dropdown-item" href="#">Pampang Harapan</a>
+                                <div class="modal fade" id="tambahMitra" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalLabel">Tambah Mitra</h5>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body mb-3">
+                                            <form>
+                                                <div>
+                                                    <section class="float-start mb-3" style="width: 48%;">
+                                                        <label for="nama" class="form-label">Nama Mitra (Sesuai KTP)</label>
+                                                        <input type="text" class="form-control" id="nama">
+                                                    </section>
+                                                    <section class="float-end mb-3" style="width: 48%;">
+                                                        <label for="nik" class="form-label">NIK</label>
+                                                        <input type="text" class="form-control" id="nik">
+                                                    </section>
+                                                </div>
+                                                <div>
+                                                    <section class="float-start mb-3" style="width: 48%;">
+                                                        <label for="kec" class="form-label">Asal Kecamatan</label>
+                                                        <select class="form-select mb-3" aria-label=".form-select example">
+                                                            <option selected>--Kecamatan--</option>
+                                                            <option value="1">Sukadana</option>
+                                                            <option value="2">Simpang Hilir</option>
+                                                            <option value="3">Teluk Batang</option>
+                                                            <option value="4">Seponti</option>
+                                                            <option value="5">Pulau Maya</option>
+                                                            <option value="6">Kepulauan Karimata</option>
+                                                        </select>
+                                                    </section>
+                                                    <section class="float-end mb-3" style="width: 48%;">
+                                                        <label for="desa" class="form-label">Asal Desa</label>
+                                                        <select class="form-select mb-3" aria-label=".form-select example">
+                                                            <option selected>--Desa--</option>
+                                                            <option value="1">Pampang Harapan</option>
+                                                            <option value="2">Pangkalan Buton</option>
+                                                            <option value="3">Nipah Kuning</option>
+                                                            <option value="4">Seponti Jaya</option>
+                                                            <option value="5">Dusun Besar</option>
+                                                            <option value="6">Padang</option>
+                                                        </select>
+                                                    </section>
+                                                </div>
+                                                <div>
+                                                    <section class="float-start mb-3" style="width: 48%;">
+                                                        <label for="hp" class="form-label">No HP</label>
+                                                        <input type="tel" class="form-control" id="hp">
+                                                    </section>
+                                                    <section class="float-end mb-3" style="width: 48%;">
+                                                        <label for="email" class="form-label">Email</label>
+                                                        <input type="email" class="form-control" id="email">
+                                                    </section>
+                                                </div>
+                                                <div>
+                                                    <section class="float-start mb-3" style="width: 48%;">
+                                                        <label for="npwp" class="form-label">NPWP</label>
+                                                        <input type="number" class="form-control" id="npwp">
+                                                    </section>
+                                                    <section class="float-end mb-3" style="width: 48%;">
+                                                        <label for="norek" class="form-label">No REK</label>
+                                                        <input type="number" class="form-control" id="norek">
+                                                    </section>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
+                                          <button type="button" class="btn btn-primary">Simpan</button>
+                                        </div>
+                                      </div>
                                     </div>
                                 </div>
                             </section>
                             <section class="float-end">
-                                <div class="dropdown">
-                                    <button class="btn btn-primary dropdown-toggle me-1" type="button"
-                                        id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        Kecamatan
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Sukadana</a>
-                                        <a class="dropdown-item" href="#">Simpang Hilir</a>
-                                        <a class="dropdown-item" href="#">Teluk Batang</a>
-                                    </div>
-                                </div>
+                                <select class="form-select mb-3 text-primary" aria-label=".form-select-lg example">
+                                    <option selected>--Desa--</option>
+                                    <option value="1">Pampang Harapan</option>
+                                    <option value="2">Pangkalan Buton</option>
+                                    <option value="3">Nipah Kuning</option>
+                                    <option value="4">Seponti Jaya</option>
+                                    <option value="5">Dusun Besar</option>
+                                    <option value="6">Padang</option>
+                                </select>
+                            </section>
+                            <section class="float-end" style="margin-right: 10px;">
+                                <select class="form-select mb-3 text-primary" aria-label=".form-select-lg example">
+                                    <option selected>--Kecamatan--</option>
+                                    <option value="1">Sukadana</option>
+                                    <option value="2">Simpang Hilir</option>
+                                    <option value="3">Teluk Batang</option>
+                                    <option value="4">Seponti</option>
+                                    <option value="5">Pulau Maya</option>
+                                    <option value="6">Kepulauan Karimata</option>
+                                </select>
                             </section>
                               
                         </div>
@@ -579,7 +647,7 @@
                                                 </button>
                                             </section>
                                             <section class="float-end">
-                                                <button type="button" class="btn btn-sm" style="color:black;">
+                                                <button type="button" class="btn btn-sm" style="color:black;" data-bs-toggle="modal" data-bs-target="#editMitra">
                                                     <i class="fa-solid fa-edit"></i>
                                                 </button>
                                             </section>
@@ -702,7 +770,7 @@
                                                 </button>
                                             </section>
                                             <section class="float-end">
-                                                <button type="button" class="btn btn-sm" style="color:black;">
+                                                <button type="button" class="btn btn-sm" style="color:black;" data-bs-toggle="modal" data-bs-target="#editMitra">
                                                     <i class="fa-solid fa-edit"></i>
                                                 </button>
                                             </section>
@@ -960,7 +1028,80 @@
                         </div>
                     </section>
                 </div>
-
+                <div class="modal fade" id="editMitra" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Edit Mitra</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body mb-3">
+                            <form>
+                                <div>
+                                    <section class="float-start mb-3" style="width: 48%;">
+                                        <label for="nama" class="form-label">Nama Mitra (Sesuai KTP)</label>
+                                        <input type="text" class="form-control" id="nama" value="Aang Jusnardi">
+                                    </section>
+                                    <section class="float-end mb-3" style="width: 48%;">
+                                        <label for="nik" class="form-label">NIK</label>
+                                        <input type="text" class="form-control" id="nik" value="6111100010001000">
+                                    </section>
+                                </div>
+                                <div>
+                                    <section class="float-start mb-3" style="width: 48%;">
+                                        <label for="kec" class="form-label">Asal Kecamatan</label>
+                                        <select class="form-select mb-3" aria-label=".form-select example">
+                                            <option selected>Sukadana</option>
+                                            <option value="1">Sukadana</option>
+                                            <option value="2">Simpang Hilir</option>
+                                            <option value="3">Teluk Batang</option>
+                                            <option value="4">Seponti</option>
+                                            <option value="5">Pulau Maya</option>
+                                            <option value="6">Kepulauan Karimata</option>
+                                        </select>
+                                    </section>
+                                    <section class="float-end mb-3" style="width: 48%;">
+                                        <label for="desa" class="form-label">Asal Desa</label>
+                                        <select class="form-select mb-3" aria-label=".form-select example">
+                                            <option selected>Pangkalan Buton</option>
+                                            <option value="1">Pampang Harapan</option>
+                                            <option value="2">Pangkalan Buton</option>
+                                            <option value="3">Nipah Kuning</option>
+                                            <option value="4">Seponti Jaya</option>
+                                            <option value="5">Dusun Besar</option>
+                                            <option value="6">Padang</option>
+                                        </select>
+                                    </section>
+                                </div>
+                                <div>
+                                    <section class="float-start mb-3" style="width: 48%;">
+                                        <label for="hp" class="form-label">No HP</label>
+                                        <input type="tel" class="form-control" id="hp" value="6111100010001000">
+                                    </section>
+                                    <section class="float-end mb-3" style="width: 48%;">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email" value="aangjusnardi@gmail.com">
+                                    </section>
+                                </div>
+                                <div>
+                                    <section class="float-start mb-3" style="width: 48%;">
+                                        <label for="npwp" class="form-label">NPWP</label>
+                                        <input type="number" class="form-control" id="npwp" value="123456789123456">
+                                    </section>
+                                    <section class="float-end mb-3" style="width: 48%;">
+                                        <label for="norek" class="form-label">No REK</label>
+                                        <input type="number" class="form-control" id="norek" value="123456789123456">
+                                    </section>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
+                          <button type="button" class="btn btn-primary">Edit</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
                 <footer>
                     <div class="footer clearfix mb-0 text-muted">
                         <div class="float-end">

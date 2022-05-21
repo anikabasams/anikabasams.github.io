@@ -180,17 +180,19 @@
                                                         <input type="number" class="form-control" id="angkeg">
                                                     </section>
                                                     <section class="float-end mb-3" style="width: 48%;">
-                                                        <label for="jenisHonor" class="form-label">Jenis Honor</label><br>
-                                                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="jenisHonor" >
-                                                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                                                            <label class="btn btn-outline-secondary text-nowrap" for="btnradio1" style="width: 11.3rem;">Orang/Bulan (OB)</label>
-                                                          
-                                                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                                                            <label class="btn btn-outline-secondary text-nowrap" for="btnradio2" style="width: 11.3rem;">Dokumen</label>
-                                                        </div>
+                                                        <label for="satuan" class="form-label">Satuan</label><br>
+                                                        <select class="form-select mb-3" aria-label=".form-select-lg example">
+                                                            <option selected>Pilih Satuan</option>
+                                                            <option value="1">Blok Sensus</option>
+                                                            <option value="2">Dokumen</option>
+                                                            <option value="3">Segmen</option>
+                                                            <option value="4">Orang/Bulan (OB)</option>
+                                                            <option value="5">Responden</option>
+                                                            <option value="6">Rumah Tangga</option>
+                                                        </select>
                                                     </section>
                                                 </div>
-                                                <div class="float-end" >  
+                                                <div class="mb-3" >  
                                                     <button class="btn-sm btn-dark nb"><i class="fa-solid fa-plus" id="addRow"></i>&nbsp;Tambah Petugas</button>
                                                 </div>
                                             </form>
@@ -239,20 +241,20 @@
                                                 </table>
                                             </div>
                                             <div>
-                                                <section class="float-start">
-                                                    <input type="file" class="form-control form-control-sm">
-                                                </section>
-                                                <section class="float-start" style="margin-left : 10px;">
+                                                <section class="float-end" style="margin-left : 10px;">
                                                     <button class="btn-sm btn-success nb">
                                                         <i class="fa-solid fa-file-import"></i>
                                                         &nbsp;impor Petugas
                                                     </button>
                                                 </section>
+                                                <section class="float-end">
+                                                    <input type="file" class="form-control form-control-sm">
+                                                </section>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
                                           <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
-                                          <button type="button" class="btn btn-primary">Tambah Kegiatan</button>
+                                          <button type="button" class="btn btn-primary">Simpan Kegiatan</button>
                                         </div>
                                       </div>
                                     </div>
@@ -607,17 +609,19 @@
                                                 <input type="number" class="form-control" id="angkeg" value="270859526">
                                             </section>
                                             <section class="float-end mb-3" style="width: 48%;">
-                                                <label for="jenisHonor" class="form-label">Jenis Honor</label><br>
-                                                <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="jenisHonor" >
-                                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                                                    <label class="btn btn-outline-secondary text-nowrap" for="btnradio1" style="width: 11.3rem;">Orang/Bulan (OB)</label>
-                                                  
-                                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                                                    <label class="btn btn-outline-secondary text-nowrap" for="btnradio2" style="width: 11.3rem;">Dokumen</label>
-                                                </div>
+                                                <label for="satuan" class="form-label">Satuan</label><br>
+                                                <select class="form-select mb-3" aria-label=".form-select-lg example">
+                                                    <option selected>Orang/Bulan (OB)</option>
+                                                    <option value="1">Blok Sensus</option>
+                                                    <option value="2">Dokumen</option>
+                                                    <option value="3">Segmen</option>
+                                                    <option value="4">Orang/Bulan (OB)</option>
+                                                    <option value="5">Responden</option>
+                                                    <option value="6">Rumah Tangga</option>
+                                                </select>
                                             </section>
                                         </div>
-                                        <div class="float-end" >  
+                                        <div class="mb-3">  
                                             <button class="btn-sm btn-dark nb"><i class="fa-solid fa-plus" id="addRow"></i>&nbsp;Tambah Petugas</button>
                                         </div>
                                     </form>
@@ -726,14 +730,14 @@
                                         </table>
                                     </div>
                                     <div>
-                                        <section class="float-start">
-                                            <input type="file" class="form-control form-control-sm">
-                                        </section>
-                                        <section class="float-start" style="margin-left : 10px;">
+                                        <section class="float-end" style="margin-left : 10px;">
                                             <button class="btn-sm btn-success nb">
                                                 <i class="fa-solid fa-file-import"></i>
                                                 &nbsp;impor Petugas
                                             </button>
+                                        </section>
+                                        <section class="float-end">
+                                            <input type="file" class="form-control form-control-sm">
                                         </section>
                                     </div>
                                 </div>
