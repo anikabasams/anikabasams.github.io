@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MitraKU - Daftar Mitra</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="assets/vendors/simple-datatables/style.css">
+
+    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/vendors/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+
+    <style>
+
+        .nb {
+            font-size: 12px;
+            border: none;
+        }
+        
+    </style>
+
+</head>
+
+<body>
+    <div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header">
+                    <div class="d-flex justify-content-between">
+                        <div class="logo">
+                            <a href="index.html">
+                                <span style="color: #22a2c2; font-size : 20px;">
+                                <i class="fa-solid fa-user-group fa-xs"></i>
+                                Mitra-KU
+                                </span>
+                            </a> 
+                        </div>
+
+                        <div class="toggler">
+                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        <li class="sidebar-title">Menu</li>
+
+                        <li class="sidebar-item active">
+                            <a href="index.html" class='sidebar-link'>
+                                <i class="fa-solid fa-table-cells-large"></i>
+                                <span>Beranda</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="daftarMitra.html" class='sidebar-link'>
+                                <i class="fa-solid fa-address-book"></i>
+                                <span>Daftar Mitra</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item ">
+                            <a href="daftarKegiatan.html" class='sidebar-link'>
+                                <i class="fa-solid fa-clipboard-list"></i>
+                                <span>Daftar Kegiatan</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+            </div>
+        </div>
+        <div id="main" class='layout-navbar'>
+            <header class='mb-3'>
+                <nav class="navbar navbar-expand navbar-light ">
+                    <div class="container-fluid">
+                        <a href="#" class="burger-btn d-block">
+                            <i class="bi bi-justify fs-3"></i>
+                        </a>
+
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                <!--<li class="nav-item dropdown me-1">
+                                    <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <i class='bi bi-envelope bi-sub fs-4 text-gray-600'></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                                        <li>
+                                            <h6 class="dropdown-header">Mail</h6>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">No new mail</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown me-3">
+                                    <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <i class='bi bi-bell bi-sub fs-4 text-gray-600'></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                                        <li>
+                                            <h6 class="dropdown-header">Notifications</h6>
+                                        </li>
+                                        <li><a class="dropdown-item">No notification available</a></li>
+                                    </ul>
+                                </li>-->
+                            </ul>
+                            <div class="dropdown">
+                                <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="user-menu d-flex">
+                                        <div class="user-name text-end me-3">
+                                            <h6 class="mb-0 text-gray-600">Anika Basa M S</h6>
+                                            <p class="mb-0 text-sm text-gray-600">Editor</p>
+                                        </div>
+                                        <div class="user-img d-flex align-items-center">
+                                            <div class="avatar avatar-md">
+                                                <img src="assets/images/faces/1.jpg">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                                    <li>
+                                        <h6 class="dropdown-header">Halo, Anika!</h6>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-hammer"></i>
+                                            Administrator</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-edit"></i>
+                                            Editor</a></li>
+                                    <!--<li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-wallet me-2"></i>
+                                            Wallet</a></li>-->
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#"><i
+                                                class="icon-mid bi bi-box-arrow-left me-2"></i> Keluar</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            <div id="main-content">
+                <div class="page-heading">
+                    <div class="page-title">
+                    <div class="row">
+                        <div class="col-12 col-md-6 order-md-1 order-last mb-2">
+                            <h3>Matriks Kegiatan</h3>
+                        </div>
+                    </div>
+                    </div>
+                    <section class="section">
+                        <div class="card">
+                        <div class="card-header">
+                            <section class="float-start" style="font-size: 13px;">
+                                <h5>Honor Maksimal : Rp2.799.999,00</h5>
+                                <span class="badge bg-success">
+                                </span> Honor Sesuai
+                                <span class="badge bg-danger" style="margin-left: 15px;">
+                                </span> Honor Lebih
+                                <span class="badge bg-dark" style="margin-left: 15px;">
+                                </span> Honor Kosong
+                            </section>
+                            <section class="float-end">
+                                <select class="form-select mb-3 text-primary" aria-label=".form-select-lg example">
+                                    <option selected>--Desa--</option>
+                                    <option value="1">Pampang Harapan</option>
+                                    <option value="2">Pangkalan Buton</option>
+                                    <option value="3">Nipah Kuning</option>
+                                    <option value="4">Seponti Jaya</option>
+                                    <option value="5">Dusun Besar</option>
+                                    <option value="6">Padang</option>
+                                </select>
+                            </section>
+                            <section class="float-end" style="margin-right: 10px;">
+                                <select class="form-select mb-3 text-primary" aria-label=".form-select-lg example">
+                                    <option selected>--Kecamatan--</option>
+                                    <option value="1">Sukadana</option>
+                                    <option value="2">Simpang Hilir</option>
+                                    <option value="3">Teluk Batang</option>
+                                    <option value="4">Seponti</option>
+                                    <option value="5">Pulau Maya</option>
+                                    <option value="6">Kepulauan Karimata</option>
+                                </select>
+                            </section>
+                              
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-striped" id="table1">
+                                <thead>
+                                    <tr>
+                                        <th>Identitas Mitra</th>
+                                        <th>Januari</th>
+                                        <th>Februari</th>
+                                        <th>Maret</th>
+                                        <th>April</th>
+                                        <th>Mei</th>
+                                        <th>Juni</th>
+                                        <th>Juli</th>
+                                        <th>Agustus</th>
+                                        <th>September</th>
+                                        <th>Oktober</th>
+                                        <th>November</th>
+                                        <th>Desember</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-nowrap">
+                                            <section class="float-top text" style="font-weight: bold;">
+                                                Aang Jusnardi
+                                            </section>
+                                            <section class="float-bottom" style="font-size: 12px;">
+                                                Sukadana - Pangkalan Buton
+                                            </section>
+                                            <section class="float-bottom" style="font-size: 12px;">
+                                                NIK &nbsp;: 6111100010001000
+                                            </section>
+                                            <section class="float-bottom" style="font-size: 12px;">
+                                                REK : 123456789123456
+                                            </section>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-success nb col-24" data-bs-toggle="modal" data-bs-target="#sesuai">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-dark nb col-24" data-bs-toggle="modal" data-bs-target="#kosong">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-success nb col-24" data-bs-toggle="modal" data-bs-target="#sesuai">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-danger nb col-24" data-bs-toggle="modal" data-bs-target="#lebih">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-success nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-dark nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-dark nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-dark nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-dark nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-dark nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-dark nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-dark nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap">
+                                            <section class="float-top text" style="font-weight: bold;">
+                                                Aang Jusnardi
+                                            </section>
+                                            <section class="float-bottom" style="font-size: 12px;">
+                                                Sukadana - Pangkalan Buton
+                                            </section>
+                                            <section class="float-bottom" style="font-size: 12px;">
+                                                NIK &nbsp;: 6111100010001000
+                                            </section>
+                                            <section class="float-bottom" style="font-size: 12px;">
+                                                REK : 123456789123456
+                                            </section>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-success nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-dark nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-success nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-danger nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-success nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-dark nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-dark nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-dark nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-dark nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-dark nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-dark nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-dark nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap">
+                                            <section class="float-top text" style="font-weight: bold;">
+                                                Aang Jusnardi
+                                            </section>
+                                            <section class="float-bottom" style="font-size: 12px;">
+                                                Sukadana - Pangkalan Buton
+                                            </section>
+                                            <section class="float-bottom" style="font-size: 12px;">
+                                                NIK &nbsp;: 6111100010001000
+                                            </section>
+                                            <section class="float-bottom" style="font-size: 12px;">
+                                                REK : 123456789123456
+                                            </section>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-success nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-dark nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-success nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-danger nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-success nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-dark nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-dark nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-dark nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-dark nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-dark nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-dark nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                        <td class="text-nowrap">
+                                            <button class="btn-sm btn-dark nb col-24">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Lihat Kegiatan dan Honor
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="modal fade" id="sesuai" tabindex="-1" aria-labelledby="sesuailabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="sesuailabel">Januari</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body mb-3">
+                            <form>
+                                <section class="float-start mb-3" style="width: 48%;">
+                                    <label for="namaKeg" class="form-label">Nama Mitra</label>
+                                    <input type="text" class="form-control" id="namaKeg" value="Aang Jusnardi" readonly>
+                                </section>
+                                <section class="float-end mb-3" style="width: 48%;">
+                                    <label for="honor" class="form-label">Jumlah Honor</label>
+                                    <input type="number" class="form-control bg-success text-white" id="honor" value="2600000" readonly>
+                                </section>
+                            </form>
+                            <div>
+                                <table class="table table-striped" id="table1">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama Kegiatan</th>
+                                            <th>Beban Mitra</th>
+                                            <th>Satuan</th>
+                                            <th>Honor Kegiatan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Survei Sosial Ekonomi Nasional
+                                            </td>
+                                            <td>
+                                                1
+                                            </td>
+                                            <td>
+                                                Orang/Bulan (OB)
+                                            </td>
+                                            <td class="fw-bold">
+                                                1800000
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Survei Angkatan Kerja Nasional
+                                            </td>
+                                            <td>
+                                                20
+                                            </td>
+                                            <td>
+                                                Dokumen
+                                            </td>
+                                            <td class="fw-bold">
+                                                800000
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Tutup</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="lebih" tabindex="-1" aria-labelledby="lebihlabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="lebihlabel">Januari</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body mb-3">
+                            <form>
+                                <section class="float-start mb-3" style="width: 48%;">
+                                    <label for="namaKeg" class="form-label">Nama Mitra</label>
+                                    <input type="text" class="form-control" id="namaKeg" value="Aang Jusnardi" readonly>
+                                </section>
+                                <section class="float-end mb-3" style="width: 48%;">
+                                    <label for="honor" class="form-label">Jumlah Honor</label>
+                                    <input type="number" class="form-control bg-danger text-white" id="honor" value="3000000" readonly>
+                                </section>
+                            </form>
+                            <div>
+                                <table class="table table-striped" id="table1">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama Kegiatan</th>
+                                            <th>Beban Mitra</th>
+                                            <th>Satuan</th>
+                                            <th>Honor Kegiatan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Survei Sosial Ekonomi Nasional
+                                            </td>
+                                            <td>
+                                                1
+                                            </td>
+                                            <td>
+                                                Orang/Bulan (OB)
+                                            </td>
+                                            <td class="fw-bold">
+                                                1800000
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Survei Angkatan Kerja Nasional
+                                            </td>
+                                            <td>
+                                                30
+                                            </td>
+                                            <td>
+                                                Dokumen
+                                            </td>
+                                            <td class="fw-bold">
+                                                1200000
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Tutup</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="kosong" tabindex="-1" aria-labelledby="kosonglabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="kosonglabel">Januari</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body mb-3">
+                            <form>
+                                <section class="float-start mb-3" style="width: 48%;">
+                                    <label for="namaKeg" class="form-label">Nama Mitra</label>
+                                    <input type="text" class="form-control" id="namaKeg" value="Aang Jusnardi" readonly>
+                                </section>
+                                <section class="float-end mb-3" style="width: 48%;">
+                                    <label for="honor" class="form-label">Jumlah Honor</label>
+                                    <input type="number" class="form-control bg-dark text-white" id="honor" value="0" readonly>
+                                </section>
+                            </form>
+                            <div>
+                                <table class="table table-striped" id="table1">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama Kegiatan</th>
+                                            <th>Beban Mitra</th>
+                                            <th>Satuan</th>
+                                            <th>Honor Kegiatan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                belum ada kegiatan 
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Tutup</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <footer>
+                    <div class="footer clearfix mb-0 text-muted">
+                        <div class="float-end">
+                            <p>2021 &copy; Mazer Saugi</p>
+                        </div>
+                    </div>
+                </footer>
+                
+            </div>
+        </div>
+    </div>
+    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
+    <script>
+        // Simple Datatable
+        let table1 = document.querySelector('#table1');
+        let dataTable = new simpleDatatables.DataTable(table1);
+
+    </script>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
