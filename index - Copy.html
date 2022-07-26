@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MitraKU - Daftar Mitra</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="assets/vendors/simple-datatables/style.css">
+
+    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/vendors/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+
+    <style>
+
+        .nb {
+            font-size: 12px;
+            border: none;
+        }
+        
+    </style>
+
+</head>
+
+<body>
+    <div class="d-flex flex-column p-5 align-items-center justify-content-end" style="height: 600px;">
+        <div class="p-2">
+            <div class="logo">
+                <a href="index.html">
+                    <span style="color: #22a2c2; font-size : 45px;">
+                    <i class="fa-solid fa-user-group fa-xs"></i>
+                    Mitra-KU
+                    </span>
+                </a> 
+            </div>
+        </div>
+        <div class="p-2">
+            <button type="button" class="btn btn-primary" style="width: 250px;">Login SSO</button>
+        </div>
+        <div class="p-2">
+            <button type="button" class="btn btn-outline-primary" style="width: 250px;">Registrasi</button>
+        </div>
+    </div>
+    
+    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
+    <script>
+        // Simple Datatable
+        let table1 = document.querySelector('#table1');
+        let dataTable = new simpleDatatables.DataTable(table1);
+
+    </script>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
