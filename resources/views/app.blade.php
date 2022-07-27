@@ -44,11 +44,14 @@
     </script>
 
     <script>
-       function myFnc1() {
-        var element = document.getElementById("sidebar-item1");
-            element.classList.remove("active");
-            element.classList.add("active");
-        }
+        $(document).ready(function () {
+ 
+            $('.menu .sidebar-item').on('click', function(e) {
+    e.preventDefault();
+    $('.menu .active').removeClass('active');
+    $(this).addClass('active');
+});
+            });
     </script>
 
     <script src="{{asset('public/js/main.js')}}"></script>

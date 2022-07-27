@@ -20,21 +20,21 @@
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
 
-                <li class="sidebar-item" id="sidebar-item1" onclick=myFnc1()>
+                <li class="sidebar-item" id="1">
                     <a href="{{'beranda'}}" class='sidebar-link'>
                         <i class="fa-solid fa-table-cells-large"></i>
                         <span>Beranda</span>
                     </a>
                 </li>
 
-                <li class="sidebar-item" id="sidebar-item2">
+                <li class="sidebar-item" id="2" >
                     <a href="{{'daftar-mitra'}}" class='sidebar-link'>
                         <i class="fa-solid fa-address-book"></i>
                         <span>Daftar Mitra</span>
                     </a>
                 </li>
 
-                <li class="sidebar-item" id="sidebar-item3">
+                <li class="sidebar-item" id="3" >
                     <a href="{{'daftar-kegiatan'}}" class='sidebar-link'>
                         <i class="fa-solid fa-clipboard-list"></i>
                         <span>Daftar Kegiatan</span>
