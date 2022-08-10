@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMembersTable extends Migration
+class CreateKecamatansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,11 @@ class CreateMembersTable extends Migration
      */
     public function up()
     {
-        Schema::create('members', function (Blueprint $table) {
+        Schema::create('kecamatans', function (Blueprint $table) {
             $table->id('id');
             $table->unsignedBigInteger('satker_id');
-            $table->string('nama');
-            $table->string('nik');
-            $table->string('kec');
-            $table->string('desa');
-            $table->integer('nohp');
-            $table->string('email');
-            $table->integer('npwp');
-            $table->integer('norek');
+            $table->integer('kode_kec');
+            $table->string('nama_kec');
             $table->timestamps();
             $table->foreign('satker_id')->references('id')->on('locations');
         });
@@ -36,6 +30,6 @@ class CreateMembersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('members');
+        Schema::dropIfExists('kecamatans');
     }
 }

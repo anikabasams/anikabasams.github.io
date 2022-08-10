@@ -17,9 +17,10 @@ class CreateTasksTable extends Migration
             $table->id('id');
             $table->unsignedBigInteger('member_id');
             $table->unsignedBigInteger('activity_id');
-            $table->string('email');
-            $table->integer('npwp');
-            $table->integer('norek');
+            $table->string('jabatan');
+            $table->decimal('harga', 15);
+            $table->integer('beban');
+            $table->decimal('total', 15);
             $table->timestamps();
             $table->foreign('member_id')->references('id')->on('members');
             $table->foreign('activity_id')->references('id')->on('activities');

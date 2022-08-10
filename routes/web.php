@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LocationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +33,6 @@ Route::get('/daftar-mitra', function () {
 Route::get('/daftar-kegiatan', function () {
     return view('activity');
 });
+
+Route::get('/daftar-wilayah', 'App\Http\Controllers\LocationController@index');
 

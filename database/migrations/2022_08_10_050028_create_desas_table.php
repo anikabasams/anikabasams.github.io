@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLocationsTable extends Migration
+class CreateDesasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateLocationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('locations', function (Blueprint $table) {
+        Schema::create('desas', function (Blueprint $table) {
             $table->id('id');
-            $table->integer('kode_satker');
-            $table->string('nama_satker');
-            $table->decimal('honor_maks', 15);
+            $table->unsignedBigInteger('kec_id');
+            $table->integer('kode_desa');
+            $table->string('nama_desa');
             $table->timestamps();
+            $table->foreign('kec_id')->references('id')->on('kecamatans');
         });
     }
 
@@ -29,6 +30,6 @@ class CreateLocationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('locations');
+        Schema::dropIfExists('desas');
     }
 }

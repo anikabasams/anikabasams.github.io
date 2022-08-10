@@ -41,6 +41,13 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item">
+                    <a href="{{'daftar-wilayah'}}" class='sidebar-link'>
+                        <i class="fa-solid fa-map-location"></i>
+                        <span>Daftar Wilayah</span>
+                    </a>
+                </li>
+
             </ul>
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
