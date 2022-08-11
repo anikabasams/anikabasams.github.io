@@ -28,60 +28,13 @@
                     </div>
                     </div>
                     <section class="section">
-                        <div class="card">
+                    <div class="card">
                         <div class="card-header">
                             <section class="float-start">
                                 <button type="button" class="btn btn-primary btn-sm me-1 mb-1" data-bs-toggle="modal" data-bs-target="#tambahWilayah">
                                     <i class="fa-solid fa-plus"></i>
                                 </button>
-                                <div class="modal fade" id="tambahWilayah" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-scrollable modal-lg">
-                                      <div class="modal-content">
-                                        <div class="modal-header">
-                                          <h5 class="modal-title" id="exampleModalLabel">Tambah Mitra</h5>
-                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body mb-3">
-                                            <form>
-                                                <div>
-                                                    <section class="float-start mb-3" style="width: 48%;">
-                                                        <label for="kode_satker" class="form-label">Kode Kabupaten</label>
-                                                        <input type="text" class="form-control" id="kode_satker">
-                                                    </section>
-                                                    <section class="float-end mb-3" style="width: 48%;">
-                                                        <label for="nama_satker" class="form-label">Kabupaten</label>
-                                                        <input type="text" class="form-control" id="nama_satker">
-                                                    </section>
-                                                </div>
-                                                <div>
-                                                    <section class="float-start mb-3" style="width: 48%;">
-                                                        <label for="kode_kec" class="form-label">Kode Kecamatan</label>
-                                                        <input type="text" class="form-control" id="kode_kec">
-                                                    </section>
-                                                    <section class="float-end mb-3" style="width: 48%;">
-                                                        <label for="nama_kec" class="form-label">Kecamatan</label>
-                                                        <input type="text" class="form-control" id="nama_kec">
-                                                    </section>
-                                                </div>
-                                                <div>
-                                                    <section class="float-start mb-3" style="width: 48%;">
-                                                        <label for="kode_desa" class="form-label">Kode Desa</label>
-                                                        <input type="text" class="form-control" id="kode_desa">
-                                                    </section>
-                                                    <section class="float-end mb-3" style="width: 48%;">
-                                                        <label for="nama_desa" class="form-label">Desa</label>
-                                                        <input type="text" class="form-control" id="nama_desa">
-                                                    </section>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
-                                          <button type="button" class="btn btn-primary">Simpan</button>
-                                        </div>
-                                      </div>
-                                    </div>
-                                </div>
+                                @include('add_loc')
                             </section>
                             <section class="float-end">
                                 <select class="form-select mb-3 text-primary" aria-label=".form-select-lg example">
@@ -129,23 +82,28 @@
                                             
                                         </td>
                                         <td>
-                                            <section class="float-end">
-                                                <button type="button" class="btn btn-sm" style="color: red;">
-                                                    <i class="fa-solid fa-trash"></i>
-                                                </button>
-                                            </section>
-                                            <section class="float-end">
-                                                <button type="button" class="btn btn-sm" style="color:black;" data-bs-toggle="modal" data-bs-target="#editMitra">
-                                                    <i class="fa-solid fa-edit"></i>
-                                                </button>
-                                            </section>
+                                            <form action="{{ route('daftar-wilayah.destroy',$location->id) }}" method="POST">
+                                                <section class="float-end">
+                                                @csrf
+                                                @method('DELETE')
+      
+                                                    <button type="submit" class="btn btn-sm" style="color: red;" value="delete">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </button>
+                                                </section>
+                                                <section class="float-end">
+                                                    <button type="button" class="btn btn-sm" style="color:black;" data-bs-toggle="modal" data-bs-target="#editMitra" href="{{ route('daftar-wilayah.edit',$location->id) }}>
+                                                        <i class="fa-solid fa-edit"></i>
+                                                    </button>
+                                                </section>
+                                            </form>    
                                         </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
-                        </div>
+                    </div>
                     </section>
                 </div>
                 <div class="modal fade" id="editMitra" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -34,5 +34,9 @@ Route::get('/daftar-kegiatan', function () {
     return view('activity');
 });
 
-Route::get('/daftar-wilayah', 'App\Http\Controllers\LocationController@index');
+Route::resource('daftar-wilayah', LocationController::class);
+
+//Route::get('/daftar-wilayah/baru', 'App\Http\Controllers\LocationController@create');
+
+//Route::post('/daftar-wilayah', 'App\Http\Controllers\LocationController@store');
 
