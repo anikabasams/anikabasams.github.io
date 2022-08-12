@@ -36,17 +36,13 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'kode_satker' => 'required',
-            'nama_satker' => 'required',
-        ]);
-        $locations = Location::create([
-            'kode_satker' =>  $request->kode_satker,
-            'nama_satker' =>  $request->nama_satker
+        Location::create([
+            'kode_satker' =>  $request->input('kode_satker'),
+            'nama_satker' =>  $request->input('nama_satker'),
+            'homor_maks' =>  $request->input('honor_maks')
         ]);
         
-        return redirect()->route('daftar-wilayah.index')
-        ->with('success','Location created successfully.');
+        return redirect()->route('daftar-wilayah.index');
     }
 
     /**
@@ -91,6 +87,9 @@ class LocationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $location->delete();
+
+        return redirect()->route('daftar-wilayah.index')
+        ->with('location', $location);
     }
 }

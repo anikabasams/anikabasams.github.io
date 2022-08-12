@@ -17,7 +17,7 @@ class CreateLocationsTable extends Migration
             $table->id('id');
             $table->integer('kode_satker');
             $table->string('nama_satker');
-            $table->decimal('honor_maks', 15);
+            $table->decimal('honor_maks', 15)->default(0);
             $table->timestamps();
         });
     }

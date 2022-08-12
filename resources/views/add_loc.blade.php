@@ -20,8 +20,8 @@
                     </div>
                     <div>
                         <section class="float-start mb-3" style="width: 48%;">
-                            <label for="kode_kec" class="form-label">Kode Kecamatan</label>
-                            <input type="number" class="form-control" id="kode_kec"/>
+                            <label for="honor_maks" class="form-label">Kode Kecamatan</label>
+                            <input type="number" class="form-control" id="honor_maks"/>
                         </section>
                         <section class="float-end mb-3" style="width: 48%;">
                             <label for="nama_kec" class="form-label">Kecamatan</label>

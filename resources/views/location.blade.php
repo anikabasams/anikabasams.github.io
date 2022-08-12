@@ -27,6 +27,11 @@
                         </div>
                     </div>
                     </div>
+                    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
                     <section class="section">
                     <div class="card">
                         <div class="card-header">
