@@ -87,17 +87,17 @@
                                             
                                         </td>
                                         <td>
-                                            <form action="{{ route('daftar-wilayah.destroy',$location->id) }}" method="POST">
+                                            <form action="{{ route('daftar-wilayah.destroy', $location->id) }}" method="Post">
                                                 <section class="float-end">
                                                 @csrf
                                                 @method('DELETE')
       
-                                                    <button type="submit" class="btn btn-sm" style="color: red;" value="delete">
+                                                    <button type="submit" class="btn btn-sm" style="color: red;">
                                                         <i class="fa-solid fa-trash"></i>
                                                     </button>
                                                 </section>
                                                 <section class="float-end">
-                                                    <button type="button" class="btn btn-sm" style="color:black;" data-bs-toggle="modal" data-bs-target="#editMitra" href="{{ route('daftar-wilayah.edit',$location->id) }}>
+                                                    <button type="button" class="btn btn-sm" style="color:black;" data-bs-toggle="modal" data-bs-target="#editMitra" href="{{ route('daftar-wilayah.edit',$location->id) }}">
                                                         <i class="fa-solid fa-edit"></i>
                                                     </button>
                                                 </section>

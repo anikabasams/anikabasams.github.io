@@ -10,8 +10,7 @@ class Location extends Model
     use HasFactory;
 
     protected $fillable =[
-        'id', 'kode_satker', 'nama_satker', 'honor_maks'
+        'id', 'kode_satker', 'nama_satker', 'honor_maks', 'created_at', 'updated_at'
     ];
 
-    public $timestamps = false;
 }

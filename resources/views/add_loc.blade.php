@@ -10,18 +10,18 @@
                 @csrf
                     <div>
                         <section class="float-start mb-3" style="width: 48%;">
-                            <label for="kode_satker" class="form-label">Kode Kabupaten</label>
-                            <input type="number" class="form-control" id="kode_satker"/>
+                            <label class="form-label">Kode Kabupaten</label>
+                            <input type="number" class="form-control" name='kode_satker' required/>
                         </section>
                         <section class="float-end mb-3" style="width: 48%;">
-                            <label for="nama_satker" class="form-label">Kabupaten</label>
-                            <input type="text" class="form-control" id="nama_satker"/>
+                            <label class="form-label">Kabupaten</label>
+                            <input type="text" class="form-control" name='nama_satker'  required />
                         </section>
                     </div>
                     <div>
                         <section class="float-start mb-3" style="width: 48%;">
-                            <label for="honor_maks" class="form-label">Kode Kecamatan</label>
-                            <input type="number" class="form-control" id="honor_maks"/>
+                            <label class="form-label">Kode Kecamatan</label>
+                            <input type="number" class="form-control" name='honor_maks'/>
                         </section>
                         <section class="float-end mb-3" style="width: 48%;">
                             <label for="nama_kec" class="form-label">Kecamatan</label>

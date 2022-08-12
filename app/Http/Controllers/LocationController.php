@@ -36,10 +36,10 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        Location::create([
+        $location = Location::create ([
             'kode_satker' =>  $request->input('kode_satker'),
             'nama_satker' =>  $request->input('nama_satker'),
-            'homor_maks' =>  $request->input('honor_maks')
+
         ]);
         
         return redirect()->route('daftar-wilayah.index');
@@ -87,9 +87,10 @@ class LocationController extends Controller
      */
     public function destroy($id)
     {
+        
+        $location = Location::find($id);
         $location->delete();
-
-        return redirect()->route('daftar-wilayah.index')
-        ->with('location', $location);
+        return redirect()->route('daftar-wilayah.index');
+       
     }
 }
