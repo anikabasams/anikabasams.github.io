@@ -15,7 +15,7 @@
                         </section>
                         <section class="float-end mb-3" style="width: 48%;">
                             <label class="form-label">Kabupaten</label>
-                            <input type="text" class="form-control" name='nama_satker'  required />
+                            <input type="text" class="form-control" name='nama_satker' required />
                         </section>
                     </div>
                     <div>

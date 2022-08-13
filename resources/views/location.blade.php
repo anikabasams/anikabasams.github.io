@@ -28,10 +28,11 @@
                     </div>
                     </div>
                     @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <p>{{ $message }}</p>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
                     <section class="section">
                     <div class="card">
                         <div class="card-header">
@@ -49,15 +50,15 @@
                             </section>
                         </div>
                         <div class="card-body">
-                            <table class="table table-striped" id="table1">
+                            <table class="table table-striped table-hover" id="table1">
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Kode_Kab</th>
+                                        <th>Kode Kab</th>
                                         <th>Kabupaten</th>
-                                        <th>Kode_Kec</th>
+                                        <th>Kode Kec</th>
                                         <th>Kecamatan</th>
-                                        <th>Kode_Desa</th>
+                                        <th>Kode Desa</th>
                                         <th>Desa</th>
                                     </tr>
                                 </thead>
@@ -97,7 +98,7 @@
                                                     </button>
                                                 </section>
                                                 <section class="float-end">
-                                                    <button type="button" class="btn btn-sm" style="color:black;" data-bs-toggle="modal" data-bs-target="#editMitra" href="{{ route('daftar-wilayah.edit',$location->id) }}">
+                                                    <button type="button" class="btn btn-sm" style="color:black;" data-bs-toggle="modal" data-bs-target="#editWilayah{{ $location->id }}">
                                                         <i class="fa-solid fa-edit"></i>
                                                     </button>
                                                 </section>
@@ -111,80 +112,59 @@
                     </div>
                     </section>
                 </div>
-                <div class="modal fade" id="editMitra" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                @foreach ($locations as $location)
+                <div class="modal fade" id="editWilayah{{ $location->id }}" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-scrollable modal-lg">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Edit Mitra</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editModalLabel">Edit Wilayah</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body mb-3">
+                                <form action="{{ route('daftar-wilayah.update', $location->id)}}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                    <div>
+                                        <section class="float-start mb-3" style="width: 48%;">
+                                            <label class="form-label">Kode Kabupaten</label>
+                                            <input type="number" class="form-control" name='kode_satker' value="{{ $location->kode_satker }}" required/>
+                                        </section>
+                                        <section class="float-end mb-3" style="width: 48%;">
+                                            <label class="form-label">Kabupaten</label>
+                                            <input type="text" class="form-control" name='nama_satker' value="{{ $location->nama_satker }}" required />
+                                        </section>
+                                    </div>
+                                    <div>
+                                        <section class="float-start mb-3" style="width: 48%;">
+                                            <label class="form-label">Kode Kecamatan</label>
+                                            <input type="number" class="form-control" name='honor_maks'/>
+                                        </section>
+                                        <section class="float-end mb-3" style="width: 48%;">
+                                            <label for="nama_kec" class="form-label">Kecamatan</label>
+                                            <input type="text" class="form-control" id="nama_kec"/>
+                                        </section>
+                                    </div>
+                                    <div>
+                                        <section class="float-start mb-3" style="width: 48%;">
+                                            <label for="kode_desa" class="form-label">Kode Desa</label>
+                                            <input type="number" class="form-control" id="kode_desa"/>
+                                        </section>
+                                        <section class="float-end mb-3" style="width: 48%;">
+                                            <label for="nama_desa" class="form-label">Desa</label>
+                                            <input type="text" class="form-control" id="nama_desa"/>
+                                        </section>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
+                                
+                            </div>
                         </div>
-                        <div class="modal-body mb-3">
-                            <form>
-                                <div>
-                                    <section class="float-start mb-3" style="width: 48%;">
-                                        <label for="nama" class="form-label">Nama Mitra (Sesuai KTP)</label>
-                                        <input type="text" class="form-control" id="nama" value="Aang Jusnardi">
-                                    </section>
-                                    <section class="float-end mb-3" style="width: 48%;">
-                                        <label for="nik" class="form-label">NIK</label>
-                                        <input type="text" class="form-control" id="nik" value="6111100010001000">
-                                    </section>
-                                </div>
-                                <div>
-                                    <section class="float-start mb-3" style="width: 48%;">
-                                        <label for="kec" class="form-label">Asal Kecamatan</label>
-                                        <select class="form-select mb-3" aria-label=".form-select example">
-                                            <option selected>Sukadana</option>
-                                            <option value="1">Sukadana</option>
-                                            <option value="2">Simpang Hilir</option>
-                                            <option value="3">Teluk Batang</option>
-                                            <option value="4">Seponti</option>
-                                            <option value="5">Pulau Maya</option>
-                                            <option value="6">Kepulauan Karimata</option>
-                                        </select>
-                                    </section>
-                                    <section class="float-end mb-3" style="width: 48%;">
-                                        <label for="desa" class="form-label">Asal Desa</label>
-                                        <select class="form-select mb-3" aria-label=".form-select example">
-                                            <option selected>Pangkalan Buton</option>
-                                            <option value="1">Pampang Harapan</option>
-                                            <option value="2">Pangkalan Buton</option>
-                                            <option value="3">Nipah Kuning</option>
-                                            <option value="4">Seponti Jaya</option>
-                                            <option value="5">Dusun Besar</option>
-                                            <option value="6">Padang</option>
-                                        </select>
-                                    </section>
-                                </div>
-                                <div>
-                                    <section class="float-start mb-3" style="width: 48%;">
-                                        <label for="hp" class="form-label">No HP</label>
-                                        <input type="tel" class="form-control" id="hp" value="6111100010001000">
-                                    </section>
-                                    <section class="float-end mb-3" style="width: 48%;">
-                                        <label for="email" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="email" value="aangjusnardi@gmail.com">
-                                    </section>
-                                </div>
-                                <div>
-                                    <section class="float-start mb-3" style="width: 48%;">
-                                        <label for="npwp" class="form-label">NPWP</label>
-                                        <input type="number" class="form-control" id="npwp" value="123456789123456">
-                                    </section>
-                                    <section class="float-end mb-3" style="width: 48%;">
-                                        <label for="norek" class="form-label">No REK</label>
-                                        <input type="number" class="form-control" id="norek" value="123456789123456">
-                                    </section>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
-                          <button type="button" class="btn btn-primary">Edit</button>
-                        </div>
-                      </div>
                     </div>
                 </div>
+                @endforeach        
                 <footer>
                     @include('footer')
                 </footer>

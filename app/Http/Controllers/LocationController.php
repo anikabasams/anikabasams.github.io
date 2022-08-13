@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Location;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class LocationController extends Controller
 {
@@ -37,12 +38,13 @@ class LocationController extends Controller
     public function store(Request $request)
     {
         $location = Location::create ([
-            'kode_satker' =>  $request->input('kode_satker'),
-            'nama_satker' =>  $request->input('nama_satker'),
-
+            'kode_satker' =>  $request->kode_satker,
+            'nama_satker' =>  $request->nama_satker,
         ]);
+
+        $location->nama_satker = Str::title($location->nama_satker);
         
-        return redirect()->route('daftar-wilayah.index');
+        return redirect()->route('daftar-wilayah.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -76,7 +78,9 @@ class LocationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $location = Location::find($id);
+        $location->fill($request->post())->save();
+        return redirect()->route('daftar-wilayah.index');
     }
 
     /**
