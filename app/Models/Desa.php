@@ -10,7 +10,7 @@ class Desa extends Model
     use HasFactory;
 
     protected $fillable =[
-        'id', 'kec_id', 'kode_desa', 'nama_desa'
+        'id', 'kec_id', 'kode_desa', 'nama_desa', 'created_at', 'updated_at'
     ];
 
     public $timestamps = false;

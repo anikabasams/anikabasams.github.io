@@ -14,31 +14,31 @@
                 <div>
                     <section class="float-start mb-3" style="width: 48%;">
                         <label class="form-label">Kode Kabupaten</label>
-                        <input type="number" class="form-control" name='kode_satker' required/>
+                        <input type="number" class="form-control" name='kode_satker' required oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
                     </section>
                     <section class="float-end mb-3" style="width: 48%;">
                         <label class="form-label">Kabupaten</label>
-                        <input type="text" class="form-control" name='nama_satker' required />
+                        <input type="text" class="form-control" name='nama_satker' required oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
                     </section>
                 </div>
                 <div>
                     <section class="float-start mb-3" style="width: 48%;">
                         <label class="form-label">Kode Kecamatan</label>
-                        <input type="number" class="form-control" name='honor_maks'/>
+                        <input type="number" class="form-control" name='honor_maks' required oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
                     </section>
                     <section class="float-end mb-3" style="width: 48%;">
                         <label for="nama_kec" class="form-label">Kecamatan</label>
-                        <input type="text" class="form-control" id="nama_kec"/>
+                        <input type="text" class="form-control" id="nama_kec" required oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
                     </section>
                 </div>
                 <div>
                     <section class="float-start mb-3" style="width: 48%;">
                         <label for="kode_desa" class="form-label">Kode Desa</label>
-                        <input type="number" class="form-control" id="kode_desa"/>
+                        <input type="number" class="form-control" id="kode_desa" required oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
                     </section>
                     <section class="float-end mb-3" style="width: 48%;">
                         <label for="nama_desa" class="form-label">Desa</label>
-                        <input type="text" class="form-control" id="nama_desa"/>
+                        <input type="text" class="form-control" id="nama_desa" required oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
                     </section>
                 </div>
             </div>
