@@ -9,7 +9,6 @@
         @include('sidebar')
         <div id="main" class='layout-navbar'>
             @include('header')
-
             <div id="main-content">
                 <div class="page-heading">
                     <div class="page-title">
@@ -50,7 +49,7 @@
                             </section>
                         </div>
                         <div class="card-body">
-                            <table class="table table-striped table-hover" id="table1">
+                            <table class="table table-hover" id="table1">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -92,7 +91,6 @@
                                                 <section class="float-end">
                                                 @csrf
                                                 @method('DELETE')
-      
                                                     <button type="submit" class="btn btn-sm" style="color: red;">
                                                         <i class="fa-solid fa-trash"></i>
                                                     </button>
@@ -120,47 +118,46 @@
                                 <h5 class="modal-title" id="editModalLabel">Edit Wilayah</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
+                            <form action="{{ route('daftar-wilayah.update', $location->id)}}" method="POST">
+                            @csrf
+                            @method('PUT')
                             <div class="modal-body mb-3">
-                                <form action="{{ route('daftar-wilayah.update', $location->id)}}" method="POST">
-                                @csrf
-                                @method('PUT')
-                                    <div>
-                                        <section class="float-start mb-3" style="width: 48%;">
-                                            <label class="form-label">Kode Kabupaten</label>
-                                            <input type="number" class="form-control" name='kode_satker' value="{{ $location->kode_satker }}" required/>
-                                        </section>
-                                        <section class="float-end mb-3" style="width: 48%;">
-                                            <label class="form-label">Kabupaten</label>
-                                            <input type="text" class="form-control" name='nama_satker' value="{{ $location->nama_satker }}" required />
-                                        </section>
-                                    </div>
-                                    <div>
-                                        <section class="float-start mb-3" style="width: 48%;">
-                                            <label class="form-label">Kode Kecamatan</label>
-                                            <input type="number" class="form-control" name='honor_maks'/>
-                                        </section>
-                                        <section class="float-end mb-3" style="width: 48%;">
-                                            <label for="nama_kec" class="form-label">Kecamatan</label>
-                                            <input type="text" class="form-control" id="nama_kec"/>
-                                        </section>
-                                    </div>
-                                    <div>
-                                        <section class="float-start mb-3" style="width: 48%;">
-                                            <label for="kode_desa" class="form-label">Kode Desa</label>
-                                            <input type="number" class="form-control" id="kode_desa"/>
-                                        </section>
-                                        <section class="float-end mb-3" style="width: 48%;">
-                                            <label for="nama_desa" class="form-label">Desa</label>
-                                            <input type="text" class="form-control" id="nama_desa"/>
-                                        </section>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
-                                </form>
+                                <div>
+                                    <section class="float-start mb-3" style="width: 48%;">
+                                        <label class="form-label">Kode Kabupaten</label>
+                                        <input type="number" class="form-control" name='kode_satker' value="{{ $location->kode_satker }}" required/>
+                                    </section>
+                                    <section class="float-end mb-3" style="width: 48%;">
+                                        <label class="form-label">Kabupaten</label>
+                                        <input type="text" class="form-control" name='nama_satker' value="{{ $location->nama_satker }}" required />
+                                    </section>
+                                </div>
+                                <div>
+                                    <section class="float-start mb-3" style="width: 48%;">
+                                        <label class="form-label">Kode Kecamatan</label>
+                                        <input type="number" class="form-control" name='honor_maks'/>
+                                    </section>
+                                    <section class="float-end mb-3" style="width: 48%;">
+                                        <label for="nama_kec" class="form-label">Kecamatan</label>
+                                        <input type="text" class="form-control" id="nama_kec"/>
+                                    </section>
+                                </div>
+                                <div>
+                                    <section class="float-start mb-3" style="width: 48%;">
+                                        <label for="kode_desa" class="form-label">Kode Desa</label>
+                                        <input type="number" class="form-control" id="kode_desa"/>
+                                    </section>
+                                    <section class="float-end mb-3" style="width: 48%;">
+                                        <label for="nama_desa" class="form-label">Desa</label>
+                                        <input type="text" class="form-control" id="nama_desa"/>
+                                    </section>
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
-                                
+                                <button type="submit" class="btn btn-primary">Simpan</button>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>

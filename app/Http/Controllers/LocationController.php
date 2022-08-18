@@ -39,11 +39,9 @@ class LocationController extends Controller
     {
         $location = Location::create ([
             'kode_satker' =>  $request->kode_satker,
-            'nama_satker' =>  $request->nama_satker,
+            'nama_satker' =>  Str::title($request->nama_satker),
         ]);
 
-        $location->nama_satker = Str::title($location->nama_satker);
-        
         return redirect()->route('daftar-wilayah.index')->with('success', 'Data berhasil ditambahkan');
     }
 
