@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\ActivityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,13 +28,11 @@ Route::get('/beranda', function () {
     return view('task');
 });
 
-Route::get('/daftar-kegiatan', function () {
-    return view('activity');
-});
-
 Route::resource('daftar-wilayah', LocationController::class);
 
 Route::resource('daftar-mitra', MemberController::class);
+
+Route::resource('daftar-kegiatan', ActivityController::class);
 
 //Route::get('/daftar-wilayah/baru', 'App\Http\Controllers\LocationController@create');
 

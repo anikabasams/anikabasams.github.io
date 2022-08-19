@@ -20,7 +20,7 @@
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-end">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
+                                    <li class="breadcrumb-item"><a href="{{'beranda'}}">Beranda</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Daftar Kegiatan</li>
                                 </ol>
                             </nav>
@@ -80,7 +80,7 @@
                                                 </div>
                                             </form>
                                             <div>
-                                                <table class="table table-striped">
+                                                <table class="table table-hover">
                                                     <thead>
                                                         <tr>
                                                             <th>Nama Mitra</th>
@@ -142,38 +142,10 @@
                                       </div>
                                     </div>
                                 </div>
-                            </section>
-                            <section class="float-end">
-                                <div class="dropdown">
-                                    <button class="btn btn-primary dropdown-toggle me-1" type="button"
-                                        id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        Tahun
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">2018</a>
-                                        <a class="dropdown-item" href="#">2019</a>
-                                        <a class="dropdown-item" href="#">2020</a>
-                                    </div>
-                                </div>
-                            </section>
-                            <section class="float-end">
-                                <div class="dropdown">
-                                    <button class="btn btn-primary dropdown-toggle me-1" type="button"
-                                        id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        Bulan
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Januari</a>
-                                        <a class="dropdown-item" href="#">Februari</a>
-                                        <a class="dropdown-item" href="#">Maret</a>
-                                    </div>
-                                </div>
-                            </section>  
+                            </section> 
                         </div>
                         <div class="card-body">
-                            <table class="table table-striped" id="table1">
+                            <table class="table table-hover" id="table1">
                                 <thead>
                                     <tr>
                                         <th>Nama Kegiatan</th>
@@ -290,7 +262,7 @@
                                         </div>
                                     </form>
                                     <div>
-                                        <table class="table table-striped" id="table1">
+                                        <table class="table table-hover" id="table1">
                                             <thead>
                                                 <tr>
                                                     <th>Nama Mitra</th>
@@ -509,7 +481,7 @@
                                         </div>
                                     </form>
                                     <div>
-                                        <table class="table table-striped" id="table1">
+                                        <table class="table table-hover" id="table1">
                                             <thead>
                                                 <tr>
                                                     <th>Nama Mitra</th>

@@ -15,7 +15,7 @@ class CreateActivitiesTable extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->id('id');
-            $table->unsignedBigInteger('satker_id');
+            $table->unsignedBigInteger('satker_id')->nullable();
             $table->string('judul');
             $table->date('mulai');
             $table->date('selesai');

@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Activity extends Model
 {
     use HasFactory;
+
+    protected $fillable =[
+        'id', 'satker_id', 'nama', 'nik', 'asal_kec', 'asal_des', 'nohp', 'email', 'npwp', 'norek', 'created_at', 'updated_at'
+    ];
 }

@@ -20,7 +20,7 @@
                             <div class="col-12 col-md-6 order-md-2 order-first">
                                 <nav aria-label="breadcrumb" class="breadcrumb-header float-end">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
+                                        <li class="breadcrumb-item"><a href="{{'beranda'}}">Beranda</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">Daftar Mitra</li>
                                     </ol>
                                 </nav>
@@ -56,11 +56,11 @@
                                                 <div>
                                                     <section class="float-start mb-3" style="width: 48%;">
                                                         <label class="form-label">Nama Mitra (Sesuai KTP)</label>
-                                                        <input type="text" class="form-control" name="nama" required oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
+                                                        <input type="text" class="form-control" name="nama" required oninvalid="this.setCustomValidity('Harus diisi dengan nama')"/>
                                                     </section>
                                                     <section class="float-end mb-3" style="width: 48%;">
                                                         <label class="form-label">NIK</label>
-                                                        <input type="number" class="form-control" name="nik" required oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
+                                                        <input type="number" class="form-control" name="nik" required oninvalid="this.setCustomValidity('Harus diisi angka')"/>
                                                     </section>
                                                 </div>
                                                 <div>
@@ -76,21 +76,21 @@
                                                 <div>
                                                     <section class="float-start mb-3" style="width: 48%;">
                                                         <label class="form-label">No HP</label>
-                                                        <input type="tel" class="form-control" name="nohp" required oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
+                                                        <input type="tel" class="form-control" name="nohp" required oninvalid="this.setCustomValidity('Harus diisi minimal 10, maksimal 13')"/>
                                                     </section>
                                                     <section class="float-end mb-3" style="width: 48%;">
                                                         <label class="form-label">Email</label>
-                                                        <input type="email" class="form-control" name="email" required oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
+                                                        <input type="email" class="form-control" name="email" required oninvalid="this.setCustomValidity('Harus diisi dengan tanda --@--')"/>
                                                     </section>
                                                 </div>
                                                 <div>
                                                     <section class="float-start mb-3" style="width: 48%;">
                                                         <label class="form-label">NPWP</label>
-                                                        <input type="number" class="form-control" name="npwp" required oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
+                                                        <input type="text" class="form-control" name="npwp" required oninvalid="this.setCustomValidity('Diisi lengkap dengan . dan -')"/>
                                                     </section>
                                                     <section class="float-end mb-3" style="width: 48%;">
                                                         <label class="form-label">No REK</label>
-                                                        <input type="number" class="form-control" name="norek" required oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
+                                                        <input type="number" class="form-control" name="norek" required oninvalid="this.setCustomValidity('Diisi hanya angka')"/>
                                                     </section>
                                                 </div>
                                             </div>
@@ -194,11 +194,11 @@
                                 <div>
                                     <section class="float-start mb-3" style="width: 48%;">
                                         <label class="form-label">Nama Mitra (Sesuai KTP)</label>
-                                        <input type="text" class="form-control" name="nama" value="{{ $member->nama }}" required oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
+                                        <input type="text" class="form-control" name="nama" value="{{ $member->nama }}" required oninvalid="this.setCustomValidity('Harus diisi dengan nama')"/>
                                     </section>
                                     <section class="float-end mb-3" style="width: 48%;">
                                         <label class="form-label">NIK</label>
-                                        <input type="number" class="form-control" name="nik" value="{{ $member->nik }}" required oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
+                                        <input type="number" class="form-control" name="nik" value="{{ $member->nik }}" required oninvalid="this.setCustomValidity('Harus diisi angka')"/>
                                     </section>
                                 </div>
                                 <div>
@@ -214,21 +214,21 @@
                                 <div>
                                     <section class="float-start mb-3" style="width: 48%;">
                                         <label class="form-label">No HP</label>
-                                        <input type="tel" class="form-control" name="nohp" value="{{ $member->nohp }}" required oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
+                                        <input type="tel" class="form-control" name="nohp" value="{{ $member->nohp }}" required oninvalid="this.setCustomValidity('harus diisi minimal 10, maksimal 13')"/>
                                     </section>
                                     <section class="float-end mb-3" style="width: 48%;">
                                         <label class="form-label">Email</label>
-                                        <input type="email" class="form-control" name="email" value="{{ $member->email }}" required oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
+                                        <input type="email" class="form-control" name="email" value="{{ $member->email }}" required oninvalid="this.setCustomValidity('Harus diisi dengan tanda --@--')"/>
                                     </section>
                                 </div>
                                 <div>
                                     <section class="float-start mb-3" style="width: 48%;">
                                         <label class="form-label">NPWP</label>
-                                        <input type="number" class="form-control" name="npwp" value="{{ $member->npwp }}" required oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
+                                        <input type="number" class="form-control" name="npwp" value="{{ $member->npwp }}" required oninvalid="this.setCustomValidity('Diisi lengkap dengan . dan -')"/>
                                     </section>
                                     <section class="float-end mb-3" style="width: 48%;">
                                         <label class="form-label">No REK</label>
-                                        <input type="number" class="form-control" name="norek" value="{{ $member->norek }}" required oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
+                                        <input type="number" class="form-control" name="norek" value="{{ $member->norek }}" required oninvalid="this.setCustomValidity('Diisi hanya angka')"/>
                                     </section>
                                 </div>
                             </div>
