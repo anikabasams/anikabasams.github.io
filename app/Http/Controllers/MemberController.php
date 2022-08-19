@@ -46,7 +46,7 @@ class MemberController extends Controller
             'nohp' =>  $request->nohp,
             'email' =>  $request->email,
             'npwp' =>  $request->npwp,
-            'norek' =>  $request->norek,
+            'norek' =>  $request->norek, 
         ]);
 
         return redirect()->route('daftar-mitra.index')->with('success', 'Data berhasil ditambahkan');

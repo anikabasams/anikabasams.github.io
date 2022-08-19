@@ -15,15 +15,15 @@ class CreateMembersTable extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->id('id');
-            $table->unsignedBigInteger('satker_id');
+            $table->unsignedBigInteger('satker_id')->nullable();
             $table->string('nama');
             $table->string('nik');
             $table->string('asal_kec');
             $table->string('asal_des');
-            $table->bigInteger('nohp');
+            $table->string('nohp');
             $table->string('email');
-            $table->bigInteger('npwp');
-            $table->bigInteger('norek');
+            $table->string('npwp');
+            $table->string('norek');
             $table->timestamps();
             $table->foreign('satker_id')->references('id')->on('locations');
         });
