@@ -41,12 +41,12 @@
                     </a>
                 </li>
 
-                <li class="sidebar-item">
+                <!--<li class="sidebar-item">
                     <a href="{{'daftar-wilayah'}}" class='sidebar-link'>
                         <i class="fa-solid fa-map-location"></i>
                         <span>Daftar Wilayah</span>
                     </a>
-                </li>
+                </li>-->
 
             </ul>
         </div>

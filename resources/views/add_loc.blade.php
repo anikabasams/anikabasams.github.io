@@ -24,21 +24,21 @@
                 <div>
                     <section class="float-start mb-3" style="width: 48%;">
                         <label class="form-label">Kode Kecamatan</label>
-                        <input type="number" class="form-control" name='honor_maks' required oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
+                        <input type="number" class="form-control" name='honor_maks'  oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
                     </section>
                     <section class="float-end mb-3" style="width: 48%;">
                         <label for="nama_kec" class="form-label">Kecamatan</label>
-                        <input type="text" class="form-control" id="nama_kec" required oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
+                        <input type="text" class="form-control" id="nama_kec"  oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
                     </section>
                 </div>
                 <div>
                     <section class="float-start mb-3" style="width: 48%;">
                         <label for="kode_desa" class="form-label">Kode Desa</label>
-                        <input type="number" class="form-control" id="kode_desa" required oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
+                        <input type="number" class="form-control" id="kode_desa"  oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
                     </section>
                     <section class="float-end mb-3" style="width: 48%;">
                         <label for="nama_desa" class="form-label">Desa</label>
-                        <input type="text" class="form-control" id="nama_desa" required oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
+                        <input type="text" class="form-control" id="nama_desa"  oninvalid="this.setCustomValidity('Bagian ini harus diisi')"/>
                     </section>
                 </div>
             </div>

@@ -10,8 +10,7 @@ class Member extends Model
     use HasFactory;
 
     protected $fillable =[
-        'id', 'desa_id', 'nama', 'nik', 'nohp', 'email', 'npwp', 'norek'
+        'id', 'satker_id', 'nama', 'nik', 'asal_kec', 'asal_des', 'nohp', 'email', 'npwp', 'norek', 'created_at', 'updated_at'
     ];
 
-    public $timestamps = false;
 }

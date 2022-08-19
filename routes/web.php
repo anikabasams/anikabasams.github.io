@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\MemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,15 +27,13 @@ Route::get('/beranda', function () {
     return view('task');
 });
 
-Route::get('/daftar-mitra', function () {
-    return view('member');
-});
-
 Route::get('/daftar-kegiatan', function () {
     return view('activity');
 });
 
 Route::resource('daftar-wilayah', LocationController::class);
+
+Route::resource('daftar-mitra', MemberController::class);
 
 //Route::get('/daftar-wilayah/baru', 'App\Http\Controllers\LocationController@create');
 
