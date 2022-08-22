@@ -135,7 +135,7 @@
                                                     </button>
                                                 </section>
                                                 <section class="float-end">
-                                                    <button type="button" class="btn btn-sm" style="color: black;" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Assign Member">
+                                                    <button type="button" class="btn btn-sm" style="color: black;" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tambah Petugas" data-bs-toggle="modal" data-bs-target="#tambahPetugas " style="color:black;">
                                                         <i class="fa-solid fa-user-plus"></i>
                                                     </button>
                                                 </section>
@@ -368,6 +368,7 @@
                                                     <label class="form-label">Satuan</label><br>
                                                     <select class="form-select mb-3" aria-label=".form-select-lg example" name="satuan">
                                                         <option selected value="{{ $activity->satuan }}">{{ $activity->satuan }}</option>
+                                                        <hr>
                                                         <option value="Blok Sensus">Blok Sensus</option>
                                                         <option value="Dokumen">Dokumen</option>
                                                         <option value="Segmen">Segmen</option>
