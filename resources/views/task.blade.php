@@ -30,30 +30,7 @@
                                 </span> Honor Lebih
                                 <span class="badge bg-dark" style="margin-left: 15px;">
                                 </span> Honor Kosong
-                            </section>
-                            <section class="float-end">
-                                <select class="form-select mb-3 text-primary" aria-label=".form-select-lg example">
-                                    <option selected>--Desa--</option>
-                                    <option value="1">Pampang Harapan</option>
-                                    <option value="2">Pangkalan Buton</option>
-                                    <option value="3">Nipah Kuning</option>
-                                    <option value="4">Seponti Jaya</option>
-                                    <option value="5">Dusun Besar</option>
-                                    <option value="6">Padang</option>
-                                </select>
-                            </section>
-                            <section class="float-end" style="margin-right: 10px;">
-                                <select class="form-select mb-3 text-primary" aria-label=".form-select-lg example">
-                                    <option selected>--Kecamatan--</option>
-                                    <option value="1">Sukadana</option>
-                                    <option value="2">Simpang Hilir</option>
-                                    <option value="3">Teluk Batang</option>
-                                    <option value="4">Seponti</option>
-                                    <option value="5">Pulau Maya</option>
-                                    <option value="6">Kepulauan Karimata</option>
-                                </select>
-                            </section>
-                              
+                            </section>  
                         </div>
                         <div class="card-body">
                             <table class="table table-striped" id="table1">

@@ -15,7 +15,8 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        
+        $activities = Activity::all();
+        return view('activity')->with("activities", $activities);
     }
 
     /**
@@ -36,7 +37,15 @@ class ActivityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $activity = Activity::create ([
+            'satker_id' =>  $request->satker_id,
+            'judul' =>  Str::title($request->judul),
+            'mulai' =>  $request->mulai,
+            'selesai' =>  $request->selesai,
+            'satuan' => $request->satuan, 
+        ]);
+
+        return redirect()->route('daftar-kegiatan.index');
     }
 
     /**
@@ -70,7 +79,9 @@ class ActivityController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $activity = Activity::find($id);
+        $activity->fill($request->post())->save();
+        return redirect()->route('daftar-kegiatan.index');
     }
 
     /**
@@ -81,6 +92,8 @@ class ActivityController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $activity = Activity::find($id);
+        $activity->delete();
+        return redirect()->route('daftar-kegiatan.index');
     }
 }

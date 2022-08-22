@@ -10,6 +10,6 @@ class Activity extends Model
     use HasFactory;
 
     protected $fillable =[
-        'id', 'satker_id', 'nama', 'nik', 'asal_kec', 'asal_des', 'nohp', 'email', 'npwp', 'norek', 'created_at', 'updated_at'
+        'id', 'satker_id', 'judul', 'mulai', 'selesai', 'satuan', 'created_at', 'updated_at'
     ];
 }

@@ -47,6 +47,6 @@
         
     </div>
     <div class="d-flex flex-column align-items-center justify-content-end p-4" style="margin-top:70px">
-        <p style="font-size: 12px;">&copy; 2022 BPS Kabupaten Kayong Utara with Fenty and Sukma</p>
+        <p style="font-size: 12px;">&copy; 2022 BPS Kabupaten Kayong Utara</p>
     </div>
 @endsection
