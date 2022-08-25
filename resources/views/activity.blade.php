@@ -93,7 +93,7 @@
                                     </thead>
                                     <tbody>
 
-                                        @foreach ($activities as $index => $activity)
+                                        @foreach ($activities as $activity)
 
                                         <tr>
                                             <td>
@@ -118,7 +118,13 @@
                                             </td>
                                             <td class="text-danger">
                                                 <i class="fa-solid fa-clipboard-user fa-lg" data-bs-toggle="modal" data-bs-target="#lihatMitra"></i>
-                                                <span>90</span>
+                                                <span>{{ $taskMembers
+                                                    echo $taskmembers }
+                                                
+                                                
+                                                
+                                                
+                                                }</span>
                                             </td>
                                             <td>
                                                 <form action="{{ route('daftar-kegiatan.destroy', $activity->id) }}" method="Post">
@@ -135,7 +141,7 @@
                                                     </button>
                                                 </section>
                                                 <section class="float-end">
-                                                    <button type="button" class="btn btn-sm" style="color: black;" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tambah Petugas" data-bs-toggle="modal" data-bs-target="#tambahPetugas " style="color:black;">
+                                                    <button type="button" class="btn btn-sm" style="color: black;" data-bs-toggle="modal" data-bs-target="#tambahMember">
                                                         <i class="fa-solid fa-user-plus"></i>
                                                     </button>
                                                 </section>
@@ -443,6 +449,82 @@
                                 </div>
                             </div>
                             @endforeach
+
+                            <div class="modal fade" id="tambahMember" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
+                                <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Assign Mitra</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <form action="{{ route('daftar-kegiatan.update', $activity->id)}}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <div class="modal-body mb-3">
+                                            <div>
+                                                <table class="table table-hover" id="table1">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Nama Mitra</th>
+                                                            <th>Beban</th>
+                                                            <th>Harga Satuan</th>
+                                                            <th>Total</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="dropdown">
+                                                                    <button class="btn btn-outline-secondary dropdown-toggle me-1" type="button"
+                                                                        id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                                                        aria-haspopup="true" aria-expanded="false">
+                                                                        Aang Jusnardi
+                                                                    </button>
+                                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                        <a class="dropdown-item" href="#">Aang Jusnardi</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <input type="number" class="form-control form-control-sm" id="" value="1">
+                                                            </td>
+                                                            <td>
+                                                                <input type="number" class="form-control form-control-sm" id="" value="2700000"> 
+                                                            </td>
+                                                            <td>
+                                                                <input type="number" class="form-control form-control-sm" id="" value="2700000">
+                                                            </td>
+                                                            <td>
+                                                                <section class="float-end">
+                                                                    <button type="button" class="btn btn-sm" style="color: red;">
+                                                                        <i class="fa-solid fa-trash"></i>
+                                                                    </button>
+                                                                </section>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div>
+                                                <section class="float-end" style="margin-left : 10px;">
+                                                    <button class="btn-sm btn-success nb">
+                                                        <i class="fa-solid fa-file-import"></i>
+                                                        &nbsp;impor Petugas
+                                                    </button>
+                                                </section>
+                                                <section class="float-end">
+                                                    <input type="file" class="form-control form-control-sm">
+                                                </section>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
+                                            <button type="submit" class="btn btn-primary">Ubah</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </section>
                 </div>

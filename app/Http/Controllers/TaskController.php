@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Activity;
-use App\Models\Task;
-use Illuminate\Support\Str;
 
-class ActivityController extends Controller
+class TaskController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +13,7 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        $activities = Activity::all();
-        $task = Task::all();
-        $taskMembers = $task->where('actvity_id', '=', '1')->count();
-        return view('activity')->with("activities", $activities, "task", $task, "taskMembers", $taskMembers);
+        //
     }
 
     /**
@@ -40,15 +34,7 @@ class ActivityController extends Controller
      */
     public function store(Request $request)
     {
-        $activity = Activity::create ([
-            'satker_id' =>  $request->satker_id,
-            'judul' =>  Str::title($request->judul),
-            'mulai' =>  $request->mulai,
-            'selesai' =>  $request->selesai,
-            'satuan' => $request->satuan, 
-        ]);
-
-        return redirect()->route('daftar-kegiatan.index');
+        //
     }
 
     /**
@@ -82,9 +68,7 @@ class ActivityController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $activity = Activity::find($id);
-        $activity->fill($request->post())->save();
-        return redirect()->route('daftar-kegiatan.index');
+        //
     }
 
     /**
@@ -95,8 +79,6 @@ class ActivityController extends Controller
      */
     public function destroy($id)
     {
-        $activity = Activity::find($id);
-        $activity->delete();
-        return redirect()->route('daftar-kegiatan.index');
+        //
     }
 }
