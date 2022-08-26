@@ -17,9 +17,9 @@ class ActivityController extends Controller
     public function index()
     {
         $activities = Activity::all();
-        $task = Task::all();
-        $taskMembers = $task->where('actvity_id', '=', '1')->count();
-        return view('activity')->with("activities", $activities, "task", $task, "taskMembers", $taskMembers);
+        $taskMembers = Task::whereBelongsTo($activities)->groupBy('activity_id')->get();
+        echo $taskMembers;
+        //return view('activity')->with("activities", $activities, "taskMembers", $taskMembers);
     }
 
     /**

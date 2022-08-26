@@ -13,4 +13,8 @@ class Member extends Model
         'id', 'satker_id', 'nama', 'nik', 'asal_kec', 'asal_des', 'nohp', 'email', 'npwp', 'norek', 'created_at', 'updated_at'
     ];
 
+    public function task() {
+        return $this->hasMany(Task::class);
+    }
+
 }
