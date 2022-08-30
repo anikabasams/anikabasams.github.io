@@ -118,13 +118,8 @@
                                             </td>
                                             <td class="text-danger">
                                                 <i class="fa-solid fa-clipboard-user fa-lg" data-bs-toggle="modal" data-bs-target="#lihatMitra"></i>
-                                                <span>{{ $taskMembers
-                                                    echo $taskmembers }
-                                                
-                                                
-                                                
-                                                
-                                                }</span>
+                                                <span>
+                                                </span>
                                             </td>
                                             <td>
                                                 <form action="{{ route('daftar-kegiatan.destroy', $activity->id) }}" method="Post">

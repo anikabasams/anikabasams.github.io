@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Activity;
 use App\Models\Task;
+use App\Models\Member;
 use Illuminate\Support\Str;
 
 class ActivityController extends Controller
@@ -17,9 +18,13 @@ class ActivityController extends Controller
     public function index()
     {
         $activities = Activity::all();
-        $taskMembers = Task::whereBelongsTo($activities)->groupBy('activity_id')->get();
-        echo $taskMembers;
-        //return view('activity')->with("activities", $activities, "taskMembers", $taskMembers);
+        $activityy = Task::find(1)->activity;
+        $activityyy = $activityy->count();
+        $members = Member::all();
+        //$taskMembers = Task::whereBelongsTo(Activity::class)->groupBy('activity_id')->get();
+        //echo $activityy;
+        //echo $activityyy;
+        return view('activity')->with("activities", $activities, "ac", $activityyy, "members", $members);
     }
 
     /**

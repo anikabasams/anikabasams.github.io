@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Activity;
+use App\Models\member;
 
 class Task extends Model
 {
@@ -21,4 +22,4 @@ class Task extends Model
     public function member() {
         return $this->belongsTo(Member::class);
     }
-} 
+}

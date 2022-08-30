@@ -12,7 +12,7 @@ class Activity extends Model
 
     protected $fillable =[
         'id', 'satker_id', 'judul', 'mulai', 'selesai', 'satuan', 'created_at', 'updated_at'
-    ];f
+    ];
 
     public function task() {
         return $this->hasMany(Task::class);

@@ -34,6 +34,8 @@ Route::resource('daftar-mitra', MemberController::class);
 
 Route::resource('daftar-kegiatan', ActivityController::class);
 
+Route::resource('daftar-anggota', TaskController::class);
+
 //Route::get('/daftar-wilayah/baru', 'App\Http\Controllers\LocationController@create');
 
 //Route::post('/daftar-wilayah', 'App\Http\Controllers\LocationController@store');
