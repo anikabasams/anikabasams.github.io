@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,7 @@ Route::resource('daftar-mitra', MemberController::class);
 
 Route::resource('daftar-kegiatan', ActivityController::class);
 
-Route::resource('daftar-anggota', TaskController::class);
+Route::resource('daftar-tugas', TaskController::class);
 
 //Route::get('/daftar-wilayah/baru', 'App\Http\Controllers\LocationController@create');
 

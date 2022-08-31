@@ -40,14 +40,14 @@ class TaskController extends Controller
         $task = Task::create ([
             'member_id' =>  $request->member_id,
             'activity_id' =>  $request->activity_id,
-            'jabatan' =>  Str::title($request->jabatan),
+            'jabatan' =>  Str::upper($request->jabatan),
             'harga' =>  $request->harga,
             'beban' =>  $request->beban,
         ]);
 
         return redirect()->route('daftar-kegiatan.index');
     }
-    }
+    
 
     /**
      * Display the specified resource.

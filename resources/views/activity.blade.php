@@ -13,19 +13,19 @@
             <div id="main-content">
                 <div class="page-heading">
                     <div class="page-title">
-                    <div class="row">
-                        <div class="col-12 col-md-6 order-md-1 order-last mb-2">
-                            <h3>Daftar Kegiatan</h3>
+                        <div class="row">
+                            <div class="col-12 col-md-6 order-md-1 order-last mb-2">
+                                <h3>Daftar Kegiatan</h3>
+                            </div>
+                            <div class="col-12 col-md-6 order-md-2 order-first">
+                                <nav aria-label="breadcrumb" class="breadcrumb-header float-end">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="{{'beranda'}}">Beranda</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Daftar Kegiatan</li>
+                                    </ol>
+                                </nav>
+                            </div>
                         </div>
-                        <div class="col-12 col-md-6 order-md-2 order-first">
-                            <nav aria-label="breadcrumb" class="breadcrumb-header float-end">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{'beranda'}}">Beranda</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Daftar Kegiatan</li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
                     </div>
                     <section class="section">
                         <div class="card">
@@ -34,11 +34,11 @@
                                     <button type="button" class="btn btn-primary btn-sm me-1 mb-1" data-bs-toggle="modal" data-bs-target="#tambahKeg">
                                         <i class="fa-solid fa-plus"></i>
                                     </button>
-                                    <div class="modal fade" id="tambahKeg" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="tambahKeg" tabindex="-1" aria-labelledby="tambahKegModal" aria-hidden="true">
                                         <div class="modal-dialog modal-sm">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Tambah Kegiatan</h5>
+                                                    <h5 class="modal-title" id="tambahKegModal">Tambah Kegiatan</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
 
@@ -82,6 +82,7 @@
                                     </div>
                                 </section> 
                             </div>
+
                             <div class="card-body">
                                 <table class="table table-hover" id="table1">
                                     <thead>
@@ -94,7 +95,6 @@
                                     <tbody>
 
                                         @foreach ($activities as $activity)
-
                                         <tr>
                                             <td>
                                                 <section class="float-start">
@@ -136,216 +136,84 @@
                                                     </button>
                                                 </section>
                                                 <section class="float-end">
-                                                    <button type="button" class="btn btn-sm" style="color: black;" data-bs-toggle="modal" data-bs-target="#tambahMember">
+                                                    <button type="button" class="btn btn-sm" style="color: black;" data-bs-toggle="modal" data-bs-target="#tambahMember{{ $activity->id }}">
                                                         <i class="fa-solid fa-user-plus"></i>
                                                     </button>
                                                 </section>
                                                 </form>
                                             </td>
                                         </tr>
-
                                         @endforeach
 
                                     </tbody>
                                 </table>
                             </div>
+
                             <div class="modal fade" id="lihatMitra" tabindex="-1" aria-labelledby="lihatmitralabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-scrollable modal-lg">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                    <h5 class="modal-title" id="lihatmitralabel">Daftar Mitra</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body mb-3">
-                                        <form>
-                                            <div class="mb-3">
-                                            <label for="namaKeg" class="form-label">Nama Kegiatan</label>
-                                            <input type="text" class="form-control" id="namaKeg" value="Survei Sosial Ekonomi Nasional" readonly>
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="lihatmitralabel">Daftar Mitra</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body mb-3">
+                                            <form>
+                                                <div class="mb-3">
+                                                <label for="namaKeg" class="form-label">Nama Kegiatan</label>
+                                                <input type="text" class="form-control" id="namaKeg" value="Survei Sosial Ekonomi Nasional" readonly>
+                                                </div>
+                                                <div class="float-end mb-3 text-warning" style="font-size: 12px;">
+                                                    Pastikan status semua mitra berwarna hijau
+                                                </div>
+                                            </form>
+                                            <div>
+                                                <table class="table table-hover" id="table1">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Nama Mitra</th>
+                                                            <th>Beban</th>
+                                                            <th>Harga Satuan</th>
+                                                            <th>Total</th>
+                                                            <th>Status</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                Aang Jusnardi
+                                                            </td>
+                                                            <td>
+                                                                1
+                                                            </td>
+                                                            <td>
+                                                                3450000
+                                                            </td>
+                                                            <td class="fw-bold">
+                                                                3450000
+                                                            </td>
+                                                            <td>
+                                                                <section>
+                                                                    <span class="badge bg-danger">Honor Penuh</span>
+                                                                </section>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
-                                            <div class="float-end mb-3 text-warning" style="font-size: 12px;">
-                                                Pastikan status semua mitra berwarna hijau
-                                            </div>
-                                        </form>
-                                        <div>
-                                            <table class="table table-hover" id="table1">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Nama Mitra</th>
-                                                        <th>Beban</th>
-                                                        <th>Harga Satuan</th>
-                                                        <th>Total</th>
-                                                        <th>Status</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            Aang Jusnardi
-                                                        </td>
-                                                        <td>
-                                                            1
-                                                        </td>
-                                                        <td>
-                                                            3450000
-                                                        </td>
-                                                        <td class="fw-bold">
-                                                            3450000
-                                                        </td>
-                                                        <td>
-                                                            <section>
-                                                                <span class="badge bg-danger">Honor Penuh</span>
-                                                            </section>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            Abdul Gofar
-                                                        </td>
-                                                        <td>
-                                                            1
-                                                        </td>
-                                                        <td>
-                                                            3450000
-                                                        </td>
-                                                        <td class="fw-bold">
-                                                            3450000
-                                                        </td>
-                                                        <td>
-                                                            <section>
-                                                                <span class="badge bg-success">Honor Sesuai</span>
-                                                            </section>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            Adminem
-                                                        </td>
-                                                        <td>
-                                                            1
-                                                        </td>
-                                                        <td>
-                                                            3450000
-                                                        </td>
-                                                        <td class="fw-bold">
-                                                            3450000
-                                                        </td>
-                                                        <td>
-                                                            <section>
-                                                                <span class="badge bg-success">Honor Sesuai</span>
-                                                            </section>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            Anika Basa Meldion
-                                                        </td>
-                                                        <td>
-                                                            1
-                                                        </td>
-                                                        <td>
-                                                            3450000
-                                                        </td>
-                                                        <td class="fw-bold">
-                                                            3450000
-                                                        </td>
-                                                        <td>
-                                                            <section>
-                                                                <span class="badge bg-success">Honor Sesuai</span>
-                                                            </section>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            Aang Jusnardi
-                                                        </td>
-                                                        <td>
-                                                            1
-                                                        </td>
-                                                        <td>
-                                                            3450000
-                                                        </td>
-                                                        <td class="fw-bold">
-                                                            3450000
-                                                        </td>
-                                                        <td>
-                                                            <section>
-                                                                <span class="badge bg-danger">Honor Penuh</span>
-                                                            </section>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            Abdul Gofar
-                                                        </td>
-                                                        <td>
-                                                            1
-                                                        </td>
-                                                        <td>
-                                                            3450000
-                                                        </td>
-                                                        <td class="fw-bold">
-                                                            3450000
-                                                        </td>
-                                                        <td>
-                                                            <section>
-                                                                <span class="badge bg-success">Honor Sesuai</span>
-                                                            </section>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            Adminem
-                                                        </td>
-                                                        <td>
-                                                            1
-                                                        </td>
-                                                        <td>
-                                                            3450000
-                                                        </td>
-                                                        <td class="fw-bold">
-                                                            3450000
-                                                        </td>
-                                                        <td>
-                                                            <section>
-                                                                <span class="badge bg-success">Honor Sesuai</span>
-                                                            </section>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            Anika Basa Meldion
-                                                        </td>
-                                                        <td>
-                                                            1
-                                                        </td>
-                                                        <td>
-                                                            3450000
-                                                        </td>
-                                                        <td class="fw-bold">
-                                                            3450000
-                                                        </td>
-                                                        <td>
-                                                            <section>
-                                                                <span class="badge bg-success">Honor Sesuai</span>
-                                                            </section>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Tutup</button>
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
-                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Tutup</button>
-                                    </div>
-                                </div>
                                 </div>
                             </div>
+
                             @foreach ($activities as $activity)
-                            <div class="modal fade" id="editKeg{{ $activity->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="editKeg{{ $activity->id }}" tabindex="-1" aria-labelledby="editKegModal" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-scrollable modal-xl">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Edit Kegiatan</h5>
+                                            <h5 class="modal-title" id="editKegModal">Edit Kegiatan</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <form action="{{ route('daftar-kegiatan.update', $activity->id)}}" method="POST">
@@ -444,27 +312,25 @@
                                 </div>
                             </div>
                             @endforeach
-
-                            <div class="modal fade" id="tambahMember" tabindex="-1" aria-labelledby="tambahMemberModal" aria-hidden="true"> 
-                                <div class="modal-dialog modal-lg">
+                            
+                            @foreach ($activities as $activity)
+                            <div class="modal fade" id="tambahMember{{ $activity->id }}" tabindex="-1" aria-labelledby="tambahMemberModal" aria-hidden="true"> 
+                                <div class="modal-dialog modal-dialog-scrollable modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="tambahMemberModal">Assign Mitra</h5>
+                                            <h5 class="modal-title" id="tambahMemberModal">Tugaskan Mitra</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
 
-                                        <form action="" method="POST">
+                                        <form action="{{ route('daftar-tugas.store') }}" method="POST">
+                                        @csrf
 
                                         <div class="modal-body mb-3">
                                             <div style="margin: 0 1em 1em 0">
-                                                <section class="float-start">
-                                                    
-                                                        <input type="text" class="form-control form-control-sm" name="activity_id" value="{{ $activity->judul }}" disabled>
-                                                        
-                                                        </input>
-                                                   
+                                                <section class="float-start p-1" style="width: 80%">
+                                                    <span name="activity_id" value="{{ $activity->id }}">{{ $activity->judul }}</span>
                                                 </section>
-                                                <section class="float-end">
+                                                <section class="float-end p-1" style="width: 20%">
                                                     <button type="button" onclick="addRow()" class="btn btn-sm btn-dark">
                                                         <i class="fa-solid fa-plus"></i> Mitra
                                                     </button>
@@ -523,6 +389,8 @@
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
+
                         </div>
                     </section>
                 </div>
