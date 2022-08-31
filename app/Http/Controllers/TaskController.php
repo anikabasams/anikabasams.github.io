@@ -43,7 +43,6 @@ class TaskController extends Controller
             'jabatan' =>  Str::title($request->jabatan),
             'harga' =>  $request->harga,
             'beban' =>  $request->beban,
-            'total' => $request->total, 
         ]);
 
         return redirect()->route('daftar-kegiatan.index');

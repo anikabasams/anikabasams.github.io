@@ -35,7 +35,7 @@
                                         <i class="fa-solid fa-plus"></i>
                                     </button>
                                     <div class="modal fade" id="tambahKeg" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-scrollable modal-sm">
+                                        <div class="modal-dialog modal-sm">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="exampleModalLabel">Tambah Kegiatan</h5>
@@ -445,62 +445,65 @@
                             </div>
                             @endforeach
 
-                            <div class="modal fade" id="tambahMember" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
-                                <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                            <div class="modal fade" id="tambahMember" tabindex="-1" aria-labelledby="tambahMemberModal" aria-hidden="true"> 
+                                <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Assign Mitra</h5>
+                                            <h5 class="modal-title" id="tambahMemberModal">Assign Mitra</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('daftar-kegiatan.update', $activity->id)}}" method="POST">
-                                        @csrf
-                                        @method('PUT')
+
+                                        <form action="" method="POST">
+
                                         <div class="modal-body mb-3">
+                                            <div style="margin: 0 1em 1em 0">
+                                                <section class="float-start">
+                                                    
+                                                        <input type="text" class="form-control form-control-sm" name="activity_id" value="{{ $activity->judul }}" disabled>
+                                                        
+                                                        </input>
+                                                   
+                                                </section>
+                                                <section class="float-end">
+                                                    <button type="button" onclick="addRow()" class="btn btn-sm btn-dark">
+                                                        <i class="fa-solid fa-plus"></i> Mitra
+                                                    </button>
+                                                </section>
+                                            </div>
                                             <div>
-                                                <table class="table table-hover" id="table1">
+                                                <table class="table table-hover" >
                                                     <thead>
                                                         <tr>
                                                             <th>Nama Mitra</th>
+                                                            <th>Jabatan</th>
                                                             <th>Beban</th>
                                                             <th>Harga Satuan</th>
-                                                            <th>Total</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        <tr>
+                                                    <tbody id="table2">
+                                                        <tr >
                                                             <td>
-                                                                <div class="dropdown">
-                                                                    <button class="btn btn-outline-secondary dropdown-toggle me-1" type="button"
-                                                                        id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                                                        aria-haspopup="true" aria-expanded="false">
-                                                                        Aang Jusnardi
-                                                                    </button>
-                                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                        <a class="dropdown-item" href="#">Aang Jusnardi</a>
-                                                                    </div>
-                                                                </div>
+                                                                <select class="form-select-sm" aria-label=".form-select example" name="member_id">
+                                                                @foreach ($members as $member)
+                                                                    <option value="{{ $member->id }}">{{ $member->nama }}</option>
+                                                                @endforeach
+                                                                </select>
                                                             </td>
                                                             <td>
-                                                                <input type="number" class="form-control form-control-sm" id="" value="1">
+                                                                <input type="text" class="form-control form-control-sm" name="jabatan"/>
                                                             </td>
                                                             <td>
-                                                                <input type="number" class="form-control form-control-sm" id="" value="2700000"> 
+                                                                <input type="number" class="form-control form-control-sm" name="beban"/>
                                                             </td>
                                                             <td>
-                                                                <input type="number" class="form-control form-control-sm" id="" value="2700000">
+                                                                <input type="number" class="form-control form-control-sm" name="harga"/> 
                                                             </td>
-                                                            <td>
-                                                                <section class="float-end">
-                                                                    <button type="button" class="btn btn-sm" style="color: red;">
-                                                                        <i class="fa-solid fa-trash"></i>
-                                                                    </button>
-                                                                </section>
-                                                            </td>
+                                                            <td></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            <div>
+                                            <!--<div>
                                                 <section class="float-end" style="margin-left : 10px;">
                                                     <button class="btn-sm btn-success nb">
                                                         <i class="fa-solid fa-file-import"></i>
@@ -510,11 +513,11 @@
                                                 <section class="float-end">
                                                     <input type="file" class="form-control form-control-sm">
                                                 </section>
-                                            </div>
+                                            </div>-->
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
-                                            <button type="submit" class="btn btn-primary">Ubah</button>
+                                            <button type="submit" class="btn btn-primary">Simpan</button>
                                         </div>
                                         </form>
                                     </div>
@@ -531,4 +534,31 @@
             </div>
         </div>
     </div>
+    <script>
+
+        function addRow (top) {
+        // (B1) GET TABLE
+        var table = document.getElementById("table2");
+
+        // (B2) INSERT ROW
+        if (top) { var row = table.insertRow(0); }
+        else { var row = table.insertRow(); }
+
+        // (B3) INSERT CELLS
+        var cell = row.insertCell();
+        cell.innerHTML = '<select class="form-select-sm" aria-label=".form-select example" name="member_id"> @foreach ($members as $member) <option value="{{ $member->id }}">{{ $member->nama }}</option> @endforeach </select>';
+        cell = row.insertCell();
+        cell.innerHTML = '<input type="text" class="form-control form-control-sm" name="jabatan"/>';
+        cell = row.insertCell();
+        cell.innerHTML = '<input type="number" class="form-control form-control-sm" name="beban"/>';
+        cell = row.insertCell();
+        cell.innerHTML = '<input type="number" class="form-control form-control-sm" name="harga"/>';
+        cell = row.insertCell();
+        cell.innerHTML = '<button type="button" onclick="deleteRoww()" class="btn btn-sm" style="color: red;"> <i class="fa-solid fa-trash"></i> </button>';
+        }
+
+        function deleteRoww() {
+            document.getElementById("table2").deleteRow(1);
+        }
+    </script>
 @endsection
