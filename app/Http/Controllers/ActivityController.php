@@ -24,7 +24,7 @@ class ActivityController extends Controller
         //$taskMembers = Task::whereBelongsTo(Activity::class)->groupBy('activity_id')->get();
         //echo $activityy;
         //echo $activityyy;
-        return view('activity')->with(["activities"=>$activities, "ac"=>$activityyy, "members"=>$members]);
+        return view('activity')->with(["activities"=>$activities, "activityyy"=>$activityyy, "members"=>$members]);
     }
 
     /**

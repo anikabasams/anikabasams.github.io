@@ -118,7 +118,7 @@
                                             </td>
                                             <td class="text-danger">
                                                 <i class="fa-solid fa-clipboard-user fa-lg" data-bs-toggle="modal" data-bs-target="#lihatMitra"></i>
-                                                <span>
+                                                <span>{{ $activityyy }}
                                                 </span>
                                             </td>
                                             <td>
@@ -328,7 +328,8 @@
                                         <div class="modal-body mb-3">
                                             <div style="margin: 0 1em 1em 0">
                                                 <section class="float-start p-1" style="width: 80%">
-                                                    <span name="activity_id" value="{{ $activity->id }}">{{ $activity->judul }}</span>
+                                                    <input name="activity_id[]" value="{{ $activity->id }}" hidden></input>
+                                                    <b>{{ $activity->judul }}</b>
                                                 </section>
                                                 <section class="float-end p-1" style="width: 20%">
                                                     <button type="button" onclick="addRow()" class="btn btn-sm btn-dark">
@@ -349,20 +350,20 @@
                                                     <tbody id="table2">
                                                         <tr >
                                                             <td>
-                                                                <select class="form-select-sm" aria-label=".form-select example" name="member_id">
+                                                                <select class="form-select-sm" aria-label=".form-select example" name="member_id[]">
                                                                 @foreach ($members as $member)
                                                                     <option value="{{ $member->id }}">{{ $member->nama }}</option>
                                                                 @endforeach
                                                                 </select>
                                                             </td>
                                                             <td>
-                                                                <input type="text" class="form-control form-control-sm" name="jabatan"/>
+                                                                <input type="text" class="form-control form-control-sm" name="jabatan[]"/>
                                                             </td>
                                                             <td>
-                                                                <input type="number" class="form-control form-control-sm" name="beban"/>
+                                                                <input type="number" class="form-control form-control-sm" name="beban[]"/>
                                                             </td>
                                                             <td>
-                                                                <input type="number" class="form-control form-control-sm" name="harga"/> 
+                                                                <input type="number" class="form-control form-control-sm" name="harga[]"/> 
                                                             </td>
                                                             <td></td>
                                                         </tr>
