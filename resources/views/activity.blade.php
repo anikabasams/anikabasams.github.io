@@ -328,7 +328,7 @@
                                         <div class="modal-body mb-3">
                                             <div style="margin: 0 1em 1em 0">
                                                 <section class="float-start p-1" style="width: 80%">
-                                                    <input name="activity_id[]" value="{{ $activity->id }}" hidden></input>
+                                                    <input name="activity_id" value="{{ $activity->id }}" hidden></input>
                                                     <b>{{ $activity->judul }}</b>
                                                 </section>
                                                 <section class="float-end p-1" style="width: 20%">
@@ -347,7 +347,7 @@
                                                             <th>Harga Satuan</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody id="table2">
+                                                    <tbody id="table2{{ $activity->id }}">
                                                         <tr >
                                                             <td>
                                                                 <select class="form-select-sm" aria-label=".form-select example" name="member_id[]">
@@ -407,27 +407,32 @@
 
         function addRow (top) {
         // (B1) GET TABLE
-        var table = document.getElementById("table2");
+        const tableVar = {!! json_encode($activities) !!};
+        let tableId = tableVar.id;
+        let tableIdd = "table2" + tableId;
+
+
+        const table = document.getElementById("table24");
 
         // (B2) INSERT ROW
-        if (top) { var row = table.insertRow(0); }
-        else { var row = table.insertRow(); }
+        if (top) { let row = table.insertRow(0); }
+        else { let row = table.insertRow(); }
 
         // (B3) INSERT CELLS
-        var cell = row.insertCell();
-        cell.innerHTML = '<select class="form-select-sm" aria-label=".form-select example" name="member_id"> @foreach ($members as $member) <option value="{{ $member->id }}">{{ $member->nama }}</option> @endforeach </select>';
+        let cell = row.insertCell();
+        cell.innerHTML = '<select class="form-select-sm" aria-label=".form-select example" name="member_id[]"> @foreach ($members as $member) <option value="{{ $member->id }}">{{ $member->nama }}</option> @endforeach </select>';
         cell = row.insertCell();
-        cell.innerHTML = '<input type="text" class="form-control form-control-sm" name="jabatan"/>';
+        cell.innerHTML = '<input type="text" class="form-control form-control-sm" name="jabatan[]"/>';
         cell = row.insertCell();
-        cell.innerHTML = '<input type="number" class="form-control form-control-sm" name="beban"/>';
+        cell.innerHTML = '<input type="number" class="form-control form-control-sm" name="beban[]"/>';
         cell = row.insertCell();
-        cell.innerHTML = '<input type="number" class="form-control form-control-sm" name="harga"/>';
+        cell.innerHTML = '<input type="number" class="form-control form-control-sm" name="harga[]"/>';
         cell = row.insertCell();
         cell.innerHTML = '<button type="button" onclick="deleteRoww()" class="btn btn-sm" style="color: red;"> <i class="fa-solid fa-trash"></i> </button>';
         }
 
         function deleteRoww() {
-            document.getElementById("table2").deleteRow(1);
+            document.getElementById("table24").deleteRow(1);
         }
     </script>
 @endsection

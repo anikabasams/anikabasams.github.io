@@ -37,13 +37,17 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        $task = Task::create ([
-            'member_id' =>  $request->member_id,
-            'activity_id' =>  $request->activity_id,
-            'jabatan' =>  Str::upper($request->jabatan),
-            'harga' =>  $request->harga,
-            'beban' =>  $request->beban,
-        ]);
+        $taskDataAll = $request->member_id;
+
+        foreach ($taskDataAll as $key => $taskData) {
+            $input['member_id'] = $taskData;
+            $input['activity_id'] = $request->activity_id;
+            $input['jabatan'] = Str::upper($request->jabatan[$key]);
+            $input['harga'] = $request->harga[$key];
+            $input['beban'] = $request->beban[$key];
+            
+            Task::create($input);
+        }
 
         return redirect()->route('daftar-kegiatan.index');
     }
