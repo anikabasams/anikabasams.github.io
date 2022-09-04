@@ -15,6 +15,6 @@ class Activity extends Model
     ];
 
     public function task() {
-        return $this->hasMany(Task::class);
+        return $this->hasMany(Task::class, 'id', 'activity_id');
     }
 }

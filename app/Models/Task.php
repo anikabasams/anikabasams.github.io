@@ -16,10 +16,10 @@ class Task extends Model
     ];
 
     public function activity() {
-        return $this->belongsTo(Activity::class);
+        return $this->belongsTo(Activity::class, 'id', 'activity_id');
     }
 
     public function member() {
-        return $this->belongsTo(Member::class);
+        return $this->belongsTo(Member::class, 'id', 'member_id');
     }
 }

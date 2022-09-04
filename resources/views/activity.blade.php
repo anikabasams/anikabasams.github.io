@@ -117,7 +117,7 @@
                                                 </section>
                                             </td>
                                             <td class="text-danger">
-                                                <i class="fa-solid fa-clipboard-user fa-lg" data-bs-toggle="modal" data-bs-target="#lihatMitra"></i>
+                                                <i class="fa-solid fa-clipboard-user fa-lg" data-bs-toggle="modal" data-bs-target="#lihatMitra{{ $activity->id }}"></i>
                                                 <span>{{ $activityyy }}
                                                 </span>
                                             </td>
@@ -148,8 +148,9 @@
                                     </tbody>
                                 </table>
                             </div>
-
-                            <div class="modal fade" id="lihatMitra" tabindex="-1" aria-labelledby="lihatmitralabel" aria-hidden="true">
+                            
+                            @foreach ($activities as $activity)
+                            <div class="modal fade" id="lihatMitra{{ $activity->id }}" tabindex="-1" aria-labelledby="lihatmitralabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-scrollable modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -159,8 +160,7 @@
                                         <div class="modal-body mb-3">
                                             <form>
                                                 <div class="mb-3">
-                                                <label for="namaKeg" class="form-label">Nama Kegiatan</label>
-                                                <input type="text" class="form-control" id="namaKeg" value="Survei Sosial Ekonomi Nasional" readonly>
+                                                    <input type="text" class="form-control" value="{{ $activity->judul }}" readonly>
                                                 </div>
                                                 <div class="float-end mb-3 text-warning" style="font-size: 12px;">
                                                     Pastikan status semua mitra berwarna hijau
@@ -178,18 +178,19 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        @foreach ($tasks as $task)
                                                         <tr>
                                                             <td>
-                                                                Aang Jusnardi
+                                                                {{ $members->name where $member->id=$tasks->id }}
                                                             </td>
                                                             <td>
-                                                                1
+                                                                {{ $task->beban }}
                                                             </td>
                                                             <td>
-                                                                3450000
+                                                                {{ $task->harga }}
                                                             </td>
                                                             <td class="fw-bold">
-                                                                3450000
+                                                                {{ $task->harga*$task->beban }}
                                                             </td>
                                                             <td>
                                                                 <section>
@@ -197,6 +198,7 @@
                                                                 </section>
                                                             </td>
                                                         </tr>
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -207,6 +209,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
 
                             @foreach ($activities as $activity)
                             <div class="modal fade" id="editKeg{{ $activity->id }}" tabindex="-1" aria-labelledby="editKegModal" aria-hidden="true">
@@ -347,7 +350,7 @@
                                                             <th>Harga Satuan</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody id="table2{{ $activity->id }}">
+                                                    <tbody id="table2">
                                                         <tr >
                                                             <td>
                                                                 <select class="form-select-sm" aria-label=".form-select example" name="member_id[]">
@@ -407,16 +410,11 @@
 
         function addRow (top) {
         // (B1) GET TABLE
-        const tableVar = {!! json_encode($activities) !!};
-        let tableId = tableVar.id;
-        let tableIdd = "table2" + tableId;
-
-
-        const table = document.getElementById("table24");
+        let table = document.getElementById("table2");
 
         // (B2) INSERT ROW
-        if (top) { let row = table.insertRow(0); }
-        else { let row = table.insertRow(); }
+        if (top) { var row = table.insertRow(0); }
+        else { var row = table.insertRow(); }
 
         // (B3) INSERT CELLS
         let cell = row.insertCell();
@@ -432,7 +430,7 @@
         }
 
         function deleteRoww() {
-            document.getElementById("table24").deleteRow(1);
+            document.getElementById("table2").deleteRow(1);
         }
     </script>
 @endsection

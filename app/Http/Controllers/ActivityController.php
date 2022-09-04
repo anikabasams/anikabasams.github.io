@@ -18,13 +18,21 @@ class ActivityController extends Controller
     public function index()
     {
         $activities = Activity::all();
+        $activitiesId = Activity::task()->id;
+        $tasks = Task::with('activity')->where('tasks.activity_id', '=', $activitiesId)->get();
         $activityy = Task::find(1)->activity;
         $activityyy = $activityy->count();
         $members = Member::all();
         //$taskMembers = Task::whereBelongsTo(Activity::class)->groupBy('activity_id')->get();
-        //echo $activityy;
-        //echo $activityyy;
-        return view('activity')->with(["activities"=>$activities, "activityyy"=>$activityyy, "members"=>$members]);
+        echo $activityy;
+        
+        /*return view('activity')->
+            with([
+                "activities"=>$activities, 
+                "activityyy"=>$activityyy, 
+                "members"=>$members, 
+                "tasks"=>$tasks,
+        ]);*/
     }
 
     /**
