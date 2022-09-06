@@ -118,7 +118,7 @@
                                             </td>
                                             <td class="text-danger">
                                                 <i class="fa-solid fa-clipboard-user fa-lg" data-bs-toggle="modal" data-bs-target="#lihatMitra{{ $activity->id }}"></i>
-                                                <span>{{ $activityyy }}
+                                                <span>{{ $tccc[0]['task_count'], $activity->id=$tccc[0]['activity_id'] }}
                                                 </span>
                                             </td>
                                             <td>
@@ -181,7 +181,7 @@
                                                         @foreach ($tasks as $task)
                                                         <tr>
                                                             <td>
-                                                                {{ $members->name where $member->id=$tasks->id }}
+                                                                
                                                             </td>
                                                             <td>
                                                                 {{ $task->beban }}

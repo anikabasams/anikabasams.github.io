@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Activity;
 use App\Models\Task;
 use App\Models\Member;
@@ -18,21 +19,36 @@ class ActivityController extends Controller
     public function index()
     {
         $activities = Activity::all();
-        $activitiesId = Activity::task()->id;
-        $tasks = Task::with('activity')->where('tasks.activity_id', '=', $activitiesId)->get();
-        $activityy = Task::find(1)->activity;
-        $activityyy = $activityy->count();
+        //$idk = new Activity;
+        //$activitiesId = $idk->task();
+        $task = new Task;
+        $tasks = Task::all();
+
+        $ac = DB::table('activities')->pluck('id');
+        $tc = DB::table('tasks')->whereIn('activity_id', $ac)->get();
+        $tcc = DB::table('tasks')
+            ->select(DB::raw('count(*) AS task_count, activity_id'))
+            ->whereIn('activity_id', $ac)
+            ->groupBy('activity_id')
+            ->get();
+        $tccc = json_decode($tcc, true);
+        
+        
+
+
+        //$activityy = Task::find(1)->activity;
+        //$activityyy = $activityy->count();
         $members = Member::all();
         //$taskMembers = Task::whereBelongsTo(Activity::class)->groupBy('activity_id')->get();
-        echo $activityy;
+        //echo $tcc;
         
-        /*return view('activity')->
+        return view('activity')->
             with([
                 "activities"=>$activities, 
-                "activityyy"=>$activityyy, 
-                "members"=>$members, 
+                "tccc"=>$tccc, 
+                "members"=>$members,
                 "tasks"=>$tasks,
-        ]);*/
+        ]);
     }
 
     /**
