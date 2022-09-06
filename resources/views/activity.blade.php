@@ -118,7 +118,7 @@
                                             </td>
                                             <td class="text-danger">
                                                 <i class="fa-solid fa-clipboard-user fa-lg" data-bs-toggle="modal" data-bs-target="#lihatMitra{{ $activity->id }}"></i>
-                                                <span>{{ $tccc[0]['task_count'], $activity->id=$tccc[0]['activity_id'] }}
+                                                <span> {{ \App\Models\Task::where(['activity_id' => $activity->id])->count() }}
                                                 </span>
                                             </td>
                                             <td>
@@ -178,10 +178,10 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        @foreach ($tasks as $task)
+                                                        @foreach ( \App\Models\Task::where(['activity_id' => $activity->id ])->get() as $task)
                                                         <tr>
                                                             <td>
-                                                                
+                                                                {{ \App\Models\Member::where(['id' => $task->member_id ])->value('nama') }}
                                                             </td>
                                                             <td>
                                                                 {{ $task->beban }}
@@ -317,11 +317,11 @@
                             @endforeach
                             
                             @foreach ($activities as $activity)
-                            <div class="modal fade" id="tambahMember{{ $activity->id }}" tabindex="-1" aria-labelledby="tambahMemberModal" aria-hidden="true"> 
+                            <div class="modal fade" id="tambahMember{{ $activity->id }}" tabindex="-1" aria-labelledby="tambahMemberModal{{ $activity->id }}" aria-hidden="true"> 
                                 <div class="modal-dialog modal-dialog-scrollable modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="tambahMemberModal">Tugaskan Mitra</h5>
+                                            <h5 class="modal-title" id="tambahMemberModal{{ $activity->id }}">Tugaskan Mitra</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
 
@@ -350,7 +350,33 @@
                                                             <th>Harga Satuan</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody id="table2">
+                                                    <tbody id="table2{{ $activity->id }}">
+
+                                                        <script>
+                                                            function addRow (top) {
+
+                                                            let table = document.getElementById("table2{{ $activity->id }}");
+
+                                                            if (top) { var row = table.insertRow(0); }
+                                                            else { var row = table.insertRow(); }
+
+                                                            let cell = row.insertCell();
+                                                            cell.innerHTML = '<select class="form-select-sm" aria-label=".form-select example" name="member_id[]"> @foreach ($members as $member) <option value="{{ $member->id }}">{{ $member->nama }}</option> @endforeach </select>';
+                                                            cell = row.insertCell();
+                                                            cell.innerHTML = '<input type="text" class="form-control form-control-sm" name="jabatan[]"/>';
+                                                            cell = row.insertCell();
+                                                            cell.innerHTML = '<input type="number" class="form-control form-control-sm" name="beban[]"/>';
+                                                            cell = row.insertCell();
+                                                            cell.innerHTML = '<input type="number" class="form-control form-control-sm" name="harga[]"/>';
+                                                            cell = row.insertCell();
+                                                            cell.innerHTML = '<button type="button" onclick="deleteRoww()" class="btn btn-sm" style="color: red;"> <i class="fa-solid fa-trash"></i> </button>';
+                                                            }
+
+                                                            function deleteRoww() {
+                                                                document.getElementById("table2{{ $activity->id }}").deleteRow(1);
+                                                            }
+                                                        </script>
+
                                                         <tr >
                                                             <td>
                                                                 <select class="form-select-sm" aria-label=".form-select example" name="member_id[]">
@@ -406,31 +432,4 @@
             </div>
         </div>
     </div>
-    <script>
-
-        function addRow (top) {
-        // (B1) GET TABLE
-        let table = document.getElementById("table2");
-
-        // (B2) INSERT ROW
-        if (top) { var row = table.insertRow(0); }
-        else { var row = table.insertRow(); }
-
-        // (B3) INSERT CELLS
-        let cell = row.insertCell();
-        cell.innerHTML = '<select class="form-select-sm" aria-label=".form-select example" name="member_id[]"> @foreach ($members as $member) <option value="{{ $member->id }}">{{ $member->nama }}</option> @endforeach </select>';
-        cell = row.insertCell();
-        cell.innerHTML = '<input type="text" class="form-control form-control-sm" name="jabatan[]"/>';
-        cell = row.insertCell();
-        cell.innerHTML = '<input type="number" class="form-control form-control-sm" name="beban[]"/>';
-        cell = row.insertCell();
-        cell.innerHTML = '<input type="number" class="form-control form-control-sm" name="harga[]"/>';
-        cell = row.insertCell();
-        cell.innerHTML = '<button type="button" onclick="deleteRoww()" class="btn btn-sm" style="color: red;"> <i class="fa-solid fa-trash"></i> </button>';
-        }
-
-        function deleteRoww() {
-            document.getElementById("table2").deleteRow(1);
-        }
-    </script>
 @endsection

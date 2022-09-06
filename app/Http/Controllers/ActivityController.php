@@ -19,12 +19,11 @@ class ActivityController extends Controller
     public function index()
     {
         $activities = Activity::all();
-        //$idk = new Activity;
-        //$activitiesId = $idk->task();
-        $task = new Task;
+        $members = Member::all();
         $tasks = Task::all();
 
         $ac = DB::table('activities')->pluck('id');
+        $act = DB::table('tasks')->pluck('activity_id');
         $tc = DB::table('tasks')->whereIn('activity_id', $ac)->get();
         $tcc = DB::table('tasks')
             ->select(DB::raw('count(*) AS task_count, activity_id'))
@@ -33,21 +32,15 @@ class ActivityController extends Controller
             ->get();
         $tccc = json_decode($tcc, true);
         
-        
-
-
-        //$activityy = Task::find(1)->activity;
-        //$activityyy = $activityy->count();
-        $members = Member::all();
-        //$taskMembers = Task::whereBelongsTo(Activity::class)->groupBy('activity_id')->get();
-        //echo $tcc;
-        
         return view('activity')->
             with([
                 "activities"=>$activities, 
                 "tccc"=>$tccc, 
                 "members"=>$members,
                 "tasks"=>$tasks,
+                "tc"=>$tc,
+                "ac"=>$ac,
+                "act"=>$act,
         ]);
     }
 
