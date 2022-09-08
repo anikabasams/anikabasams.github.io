@@ -351,6 +351,25 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody id="table2{{ $activity->id }}">
+                                                        <tr >
+                                                            <td>
+                                                                <select class="form-select-sm" aria-label=".form-select example" name="member_id[]">
+                                                                @foreach ($members as $member)
+                                                                    <option value="{{ $member->id }}">{{ $member->nama }}</option>
+                                                                @endforeach
+                                                                </select>
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" class="form-control form-control-sm" name="jabatan[]"/>
+                                                            </td>
+                                                            <td>
+                                                                <input type="number" class="form-control form-control-sm" name="beban[]"/>
+                                                            </td>
+                                                            <td>
+                                                                <input type="number" class="form-control form-control-sm" name="harga[]"/> 
+                                                            </td>
+                                                            <td></td>
+                                                        </tr>
 
                                                         <script>
                                                             function addRow (top) {
@@ -376,26 +395,6 @@
                                                                 document.getElementById("table2{{ $activity->id }}").deleteRow(1);
                                                             }
                                                         </script>
-
-                                                        <tr >
-                                                            <td>
-                                                                <select class="form-select-sm" aria-label=".form-select example" name="member_id[]">
-                                                                @foreach ($members as $member)
-                                                                    <option value="{{ $member->id }}">{{ $member->nama }}</option>
-                                                                @endforeach
-                                                                </select>
-                                                            </td>
-                                                            <td>
-                                                                <input type="text" class="form-control form-control-sm" name="jabatan[]"/>
-                                                            </td>
-                                                            <td>
-                                                                <input type="number" class="form-control form-control-sm" name="beban[]"/>
-                                                            </td>
-                                                            <td>
-                                                                <input type="number" class="form-control form-control-sm" name="harga[]"/> 
-                                                            </td>
-                                                            <td></td>
-                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>

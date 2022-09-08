@@ -7,7 +7,7 @@
     <title>MitraKU - @yield('title')</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap">
     <link rel="stylesheet" href="{{asset('public/css/bootstrap.css')}}">
 
     <link rel="stylesheet" href="{{asset('public/css/simple-datatables/style.css')}}">
@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{asset('public/css/font-awesome/css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('public/css/app.css')}}">
     <link rel="shortcut icon" href="{{asset('public/images/logo.svg')}}" sastype="image/x-icon">
+    <link rel="stylesheet" href="{{asset('public/frappe-gantt/dist/frappe-gantt.css')}}">
 
     <style>
 
@@ -35,10 +36,25 @@
     <script src="{{asset('public/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('public/js/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('public/css/simple-datatables/simple-datatables.js')}}"></script>
+    <script src="{{asset('public/frappe-gantt/dist/frappe-gantt.min.js')}}"></script>
     <script>
         // Simple Datatable
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
+    </script>
+    <script>
+        var tasks = [
+        {
+            id: 'Task 1',
+            name: 'Redesign website',
+            start: '2016-12-28',
+            end: '2016-12-31',
+            progress: 20,
+            dependencies: 'Task 2, Task 3',
+            custom_class: 'bar-milestone' // optional
+        },
+        ]
+        var gantt = new Gantt("#gantt", tasks);
     </script>
 </body>
 
