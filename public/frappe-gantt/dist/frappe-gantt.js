@@ -1,28 +1,28 @@
 var Gantt = (function () {
     'use strict';
 
-    const YEAR = 'year';
-    const MONTH = 'month';
-    const DAY = 'day';
-    const HOUR = 'hour';
-    const MINUTE = 'minute';
-    const SECOND = 'second';
-    const MILLISECOND = 'millisecond';
+    const YEAR = 'Tahun';
+    const MONTH = 'Bulan';
+    const DAY = 'Hari';
+    const HOUR = 'Jam';
+    const MINUTE = 'Menit';
+    const SECOND = 'Detik';
+    const MILLISECOND = 'Milidetik';
 
     const month_names = {
         en: [
-            'January',
-            'February',
-            'March',
+            'Januari',
+            'Februari',
+            'Maret',
             'April',
-            'May',
-            'June',
-            'July',
-            'August',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
             'September',
-            'October',
+            'Oktober',
             'November',
-            'December',
+            'Desember',
         ],
         es: [
             'Enero',
