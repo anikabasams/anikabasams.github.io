@@ -18,11 +18,11 @@ use App\Http\Controllers\TaskController;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('auth/login');
 });
 
 Route::get('/login', function () {
-    return view('login');
+    return view('auth/login');
 });
 
 Route::get('/beranda', function () {
@@ -37,7 +37,18 @@ Route::resource('daftar-kegiatan', ActivityController::class);
 
 Route::resource('daftar-tugas', TaskController::class);
 
+Auth::routes();
+
+Route::get('admin', function () {
+    return view('admin'); 
+})->middleware('checkRole:administrator');
+
+Route::get('editor', function () { 
+    return view('editor'); 
+})->middleware(['checkRole:editor,administrator']);
+
 //Route::get('/daftar-wilayah/baru', 'App\Http\Controllers\LocationController@create');
 
 //Route::post('/daftar-wilayah', 'App\Http\Controllers\LocationController@store');
 
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

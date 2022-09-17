@@ -25,6 +25,35 @@
             font-size: 12px;
             border: none;
         }
+
+        .lupa {
+            font-size : 15px;
+            text-decoration: none;
+        }
+
+        .lupa:hover {
+            text-decoration: underline;
+        }
+
+        @media only screen and (max-width: 2000px) {
+            .login {
+               padding : 10px;
+            }
+
+            .login-footer {
+                padding: 30px;
+            }
+        }
+
+        @media only screen and (max-width: 1400px) {
+            .login {
+               padding : 40px;
+            }
+
+            .login-footer {
+                padding: 0px;
+            }
+        }
         
     </style>
 </head>
