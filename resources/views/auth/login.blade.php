@@ -75,7 +75,7 @@
             @endif
         </div>
             @else
-                @include('header')
+                <a class="btn btn-outline-dark" href="{{ ('beranda') }}" style="width: 250px;">Ke Beranda</a>  
         @endguest
     </div>
     
