@@ -21,9 +21,9 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-Route::get('/login', function () {
+/*Route::get('/login', function () {
     return view('auth/login');
-});
+});*/
 
 Route::get('/beranda', function () {
     return view('task');
@@ -39,13 +39,13 @@ Route::resource('daftar-tugas', TaskController::class);
 
 Auth::routes();
 
-Route::get('admin', function () {
-    return view('admin'); 
+/*Route::get('admin', function () {
+    return view('task'); 
 })->middleware('checkRole:administrator');
 
 Route::get('editor', function () { 
-    return view('editor'); 
-})->middleware(['checkRole:editor,administrator']);
+    return view('activity'); 
+})->middleware(['checkRole:editor,administrator']);*/
 
 //Route::get('/daftar-wilayah/baru', 'App\Http\Controllers\LocationController@create');
 

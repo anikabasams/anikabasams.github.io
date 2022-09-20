@@ -40,14 +40,14 @@
                         <span>Daftar Kegiatan</span>
                     </a>
                 </li>
-
-                <!--<li class="sidebar-item">
+                @if(Auth::user()->role === 'administrator')
+                <li class="sidebar-item">
                     <a href="{{'daftar-wilayah'}}" class='sidebar-link'>
-                        <i class="fa-solid fa-map-location"></i>
-                        <span>Daftar Wilayah</span>
+                        <i class="fa-solid fa-user-tie"></i>
+                        <span>Manajemen Pengguna</span>
                     </a>
-                </li>-->
-
+                </li>
+                @endif
             </ul>
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>

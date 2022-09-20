@@ -18,8 +18,8 @@
                                 <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                     <div class="user-menu d-flex">
                                         <div class="user-name text-end me-3">
-                                            <h6 class="mb-0 text-gray-600">Anika Basa M S</h6>
-                                            <p class="mb-0 text-sm text-gray-600">Editor</p>
+                                            <h6 class="mb-0 text-gray-600">{{ Auth::user()->name }}</h6>
+                                            <p class="mb-0 text-sm text-gray-600" style="text-transform: capitalize;">{{ Auth::user()->role }}</p>
                                         </div>
                                         <div class="user-img d-flex align-items-center">
                                             <div class="avatar avatar-md">
@@ -30,20 +30,27 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                                     <li>
-                                        <h6 class="dropdown-header">Halo, Anika!</h6>
+                                        <h6 class="dropdown-header">Halo, {{ Auth::user()->name }}!</h6>
                                     </li>
-                                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-hammer"></i>
+                                    <!--<li><a class="dropdown-item" href="#"><i class="fa-solid fa-hammer"></i>
                                             Administrator</a>
                                     </li>
                                     <li><a class="dropdown-item" href="#"><i class="fa-solid fa-edit"></i>
                                             Editor</a>
-                                    </li>
+                                    </li>-->
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="{{'login'}}">
-                                        <i class="icon-mid bi bi-box-arrow-left me-2"></i> 
-                                            Keluar</a>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('logout') }}" 
+                                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                            <i class="icon-mid bi bi-box-arrow-left me-2"></i> 
+                                            {{ __('Keluar') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
                                     </li>
                                 </ul>
                             </div>
