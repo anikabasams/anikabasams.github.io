@@ -318,8 +318,8 @@
                             
                             @foreach ($activities as $activity)
                             <div class="modal fade" id="tambahMember{{ $activity->id }}" tabindex="-1" aria-labelledby="tambahMemberModal{{ $activity->id }}" aria-hidden="true"> 
-                                <div class="modal-dialog modal-dialog-scrollable modal-lg">
-                                    <div class="modal-content">
+                                <div class="modal-dialog modal-dialog-scrollable modal-lg" id="tambahMemberD{{ $activity->id }}">
+                                    <div class="modal-content" id="tambahMemberC{{ $activity->id }}">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="tambahMemberModal{{ $activity->id }}">Tugaskan Mitra</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -328,7 +328,7 @@
                                         <form action="{{ route('daftar-tugas.store') }}" method="POST">
                                         @csrf
 
-                                        <div class="modal-body mb-3">
+                                        <div class="modal-body mb-3" id="tambahMemberB{{ $activity->id }}">
                                             <div style="margin: 0 1em 1em 0">
                                                 <section class="float-start p-1" style="width: 80%">
                                                     <input name="activity_id" value="{{ $activity->id }}" hidden></input>
@@ -373,7 +373,7 @@
 
                                                         <script>
                                                             function addRow (top) {
-
+                                                            //let modal = document.getElementById("tambahMember{{ $activity->id }}");
                                                             let table = document.getElementById("table2{{ $activity->id }}");
 
                                                             if (top) { var row = table.insertRow(0); }
