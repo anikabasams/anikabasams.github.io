@@ -16,18 +16,17 @@ class TaskImport implements ToModel
     */
     public function model(array $row)
     {
-        $member = DB::table('member')->pluck('id', 'nik');
-        $nik = $row[1];
+        /*$nik = '123456';
+        $member = DB::table('members')
+            ->where('nik', $nik)
+            ->value('id');*/
 
-        if($member['nik'] = $nik)(
-            return new Task([
-                $member['id'] => 
-                'jabatan' => $row[2],
-                'harga' => $row[3], 
-                'beban' => $row[4],
-            ]);
-        )
-
-        
+        return new Task([
+            'member_id' => $row[0],
+            'activity_id' => $row[1],
+            'jabatan' => $row[2],
+            'harga' => $row[3], 
+            'beban' => $row[4],
+        ]);
     }
 }

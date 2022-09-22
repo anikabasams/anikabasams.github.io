@@ -181,7 +181,7 @@
                                                         @foreach ( \App\Models\Task::where(['activity_id' => $activity->id ])->get() as $task)
                                                         <tr>
                                                             <td>
-                                                                {{ \App\Models\Member::where(['id' => $task->member_id ])->value('nama') }}
+                                                                {{ \App\Models\Member::where(['nik' => $task->member_id ])->value('nama') }}
                                                             </td>
                                                             <td>
                                                                 {{ $task->beban }}
@@ -295,15 +295,18 @@
                                                 </table>
                                             </div>
                                             <div>
-                                                <section class="float-end" style="margin-left : 10px;">
-                                                    <button class="btn-sm btn-success nb">
-                                                        <i class="fa-solid fa-file-import"></i>
-                                                        &nbsp;impor Petugas
-                                                    </button>
-                                                </section>
-                                                <section class="float-end">
-                                                    <input type="file" class="form-control form-control-sm">
-                                                </section>
+                                                <form action="{{ 'member/import_excel' }}" enctype="multipart/form-data" method=POST>
+                                                    @csrf
+                                                    
+                                                        
+                                                    
+                                                        <input type="file" class="form-control form-control-sm">
+                                                        <button type="submit" class="btn-sm btn-success nb">
+                                                            <i class="fa-solid fa-file-import"></i>
+                                                            &nbsp;impor Petugas
+                                                        </button>
+                                                   
+                                                </form>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -340,7 +343,7 @@
                                                     </button>
                                                 </section>
                                             </div>
-                                            <div>
+                                            <!--<div>
                                                 <table class="table table-hover" >
                                                     <thead>
                                                         <tr>
@@ -397,8 +400,8 @@
                                                         </script>
                                                     </tbody>
                                                 </table>
-                                            </div>
-                                            <!--<div>
+                                            </div>-->
+                                            <div>
                                                 <section class="float-end" style="margin-left : 10px;">
                                                     <button class="btn-sm btn-success nb">
                                                         <i class="fa-solid fa-file-import"></i>
@@ -408,7 +411,7 @@
                                                 <section class="float-end">
                                                     <input type="file" class="form-control form-control-sm">
                                                 </section>
-                                            </div>-->
+                                            </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>

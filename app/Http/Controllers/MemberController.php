@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Member;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class MemberController extends Controller
 {
@@ -81,9 +82,9 @@ class MemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $nik)
     {
-        $member = Member::find($id);
+        $member = Member::find($nik);
         $member->fill($request->post())->save();
         return redirect()->route('daftar-mitra.index');
     }
@@ -94,9 +95,9 @@ class MemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($nik)
     {
-        $member = Member::find($id);
+        $member = Member::find($nik);
         $member->delete();
         return redirect()->route('daftar-mitra.index');
     }

@@ -39,6 +39,8 @@ Route::resource('daftar-tugas', TaskController::class);
 
 Auth::routes();
 
+Route::post('/member/import_excel', 'App\Http\Controllers\TaskController@import_excel');
+
 /*Route::get('admin', function () {
     return view('task'); 
 })->middleware('checkRole:administrator');

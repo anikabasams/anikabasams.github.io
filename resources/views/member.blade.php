@@ -151,7 +151,7 @@
                                         <td>{{ $member->npwp }}</td>
                                         <td>{{ $member->norek }}</td>
                                         <td>
-                                            <form action="{{ route('daftar-mitra.destroy', $member->id) }}" method="POST">
+                                            <form action="{{ route('daftar-mitra.destroy', $member->nik) }}" method="POST">
                                                 <section class="float-end">
                                                     
                                                     @csrf
@@ -186,7 +186,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
 
-                            <form action="{{ route('daftar-mitra.update', $member->id)}}" method="POST">
+                            <form action="{{ route('daftar-mitra.update', $member->nik)}}" method="POST">
                             @csrf
                             @method('PUT')
 
