@@ -71,6 +71,7 @@
         <div class="p-2">
             <button type="submit" class="btn btn-outline-dark" style="width: 250px;">Registrasi</a>
         </div>
+        
         </form>
 
         <div class="p-2 text-center">

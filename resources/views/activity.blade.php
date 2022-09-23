@@ -295,17 +295,13 @@
                                                 </table>
                                             </div>
                                             <div>
-                                                <form action="{{ 'member/import_excel' }}" enctype="multipart/form-data" method=POST>
+                                                <form action="{{ route('import_excel') }}" enctype="multipart/form-data" method=POST>
                                                     @csrf
-                                                    
-                                                        
-                                                    
                                                         <input type="file" class="form-control form-control-sm">
                                                         <button type="submit" class="btn-sm btn-success nb">
                                                             <i class="fa-solid fa-file-import"></i>
                                                             &nbsp;impor Petugas
                                                         </button>
-                                                   
                                                 </form>
                                             </div>
                                         </div>
@@ -328,8 +324,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
 
-                                        <form action="{{ route('daftar-tugas.store') }}" method="POST">
-                                        @csrf
+                                        
 
                                         <div class="modal-body mb-3" id="tambahMemberB{{ $activity->id }}">
                                             <div style="margin: 0 1em 1em 0">
@@ -402,22 +397,19 @@
                                                 </table>
                                             </div>-->
                                             <div>
-                                                <section class="float-end" style="margin-left : 10px;">
-                                                    <button class="btn-sm btn-success nb">
-                                                        <i class="fa-solid fa-file-import"></i>
-                                                        &nbsp;impor Petugas
-                                                    </button>
-                                                </section>
-                                                <section class="float-end">
-                                                    <input type="file" class="form-control form-control-sm">
-                                                </section>
+                                                <form action="{{ route('import_excel') }}" method=POST>
+                                                    @csrf
+                                                        <input type="file" class="form-control form-control-sm">
+                                                            
+                                                
                                             </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
                                             <button type="submit" class="btn btn-primary">Simpan</button>
-                                        </div>
                                         </form>
+                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>

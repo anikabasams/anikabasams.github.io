@@ -5,6 +5,7 @@ use App\Http\Controllers\LocationController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\ImportExcelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +40,7 @@ Route::resource('daftar-tugas', TaskController::class);
 
 Auth::routes();
 
-Route::post('/member/import_excel', 'App\Http\Controllers\TaskController@import_excel');
+Route::post('/import_excel', [App\Http\Controllers\ImportExcelController::class, 'import_excel'])->name('import_excel');
 
 /*Route::get('admin', function () {
     return view('task'); 
