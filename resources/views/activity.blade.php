@@ -397,8 +397,9 @@
                                                 </table>
                                             </div>-->
                                             <div>
-                                                <form action="{{ route('import_excel') }}" method=POST>
+                                                <form action="{{ route('import_excel') }}" method=POST enctype="multipart/form-data">
                                                     @csrf
+                                                        <input name="activity_id" value="{{ $activity->id }}" hidden></input>
                                                         <input type="file" class="form-control form-control-sm">
                                                             
                                                 
