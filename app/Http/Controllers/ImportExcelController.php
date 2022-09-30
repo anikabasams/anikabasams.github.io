@@ -11,11 +11,12 @@ use App\Http\Controllers\Controller;
 class ImportExcelController extends Controller
 {	
 	
-    public function import_excel(Request $request, $activity_id) 
+    public function import_excel(Request $request) 
 	{
-		
+		$path1 = $request->file('file')->store('file_member'); 
+		$path = storage_path('app').'/'.$path1; 
 		// import data
-		Excel::import(new TaskImport($activity_id), 'public/file_member/Book1.xlsx' );
+		Excel::import(new TaskImport, $path);
 		
  
 		// alihkan halaman kembali

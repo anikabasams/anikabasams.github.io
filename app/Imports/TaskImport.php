@@ -8,8 +8,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
+use Maatwebsite\Excel\Concerns\ToModel;
 
-class TaskImport implements ToCollection
+
+/*class TaskImport implements ToCollection
 {
     public function  __construct($activity_id)
     {
@@ -28,33 +30,30 @@ class TaskImport implements ToCollection
             ]);
         }
     }
-}
-/*
+}*/
+
 class TaskImport implements ToModel
 {
-    public function  __construct($activity_id)
-    {
-        $this->activity_id = $activity_id;
-    }
+    
     /**
     * @param array $row
     *
     * @return \Illuminate\Database\Eloquent\Model|null
-    //
-    public function model(array $row)
+    */
+    
+    public function model(array $row, Request $request)
     {
         /*$nik = '123456';
         $member = DB::table('members')
             ->where('nik', $nik)
-            ->value('id');//
+            ->value('id');*/
 
         return new Task([
             'member_id' => $row[0],
-            'activity_id' => $this->activity_id,
+            'activity_id' => $request->activity_id,
             'jabatan' => $row[2],
             'harga' => $row[3], 
             'beban' => $row[4],
         ]);
     }
 }
-*/
