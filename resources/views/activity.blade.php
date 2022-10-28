@@ -316,60 +316,56 @@
                             @endforeach
                             
                             @foreach ($activities as $activity)
-                            <div class="modal fade" id="tambahMember{{ $activity->id }}" tabindex="-1" aria-labelledby="tambahMemberModal{{ $activity->id }}" aria-hidden="true"> 
-                                <div class="modal-dialog modal-dialog-scrollable modal-lg" id="tambahMemberD{{ $activity->id }}">
-                                    <div class="modal-content" id="tambahMemberC{{ $activity->id }}">
+                            <div class="modal fade" id="tambahMember{{ $activity->id }}" tabindex="-1" aria-labelledby="tambahMemberModal" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                                    <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="tambahMemberModal{{ $activity->id }}">Tugaskan Mitra</h5>
+                                            <h5 class="modal-title" id="tambahMemberModal">Tugaskan Mitra</h5>
+                                            <b style="margin: 0.1em 0 0 1em;">{{ $activity->judul }}</b>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
+                                        <div class="modal-body mb-3">
 
-                                        
+                                            <form action="{{ route('daftar-tugas.store')}}" method="POST">
+                                            @csrf
 
-                                        <div class="modal-body mb-3" id="tambahMemberB{{ $activity->id }}">
-                                            <div style="margin: 0 1em 1em 0">
-                                                <section class="float-start p-1" style="width: 80%">
-                                                    <input name="activity_id" value="{{ $activity->id }}" hidden></input>
-                                                    <b>{{ $activity->judul }}</b>
-                                                </section>
-                                                <section class="float-end p-1" style="width: 20%">
-                                                    <button type="button" onclick="addRow()" class="btn btn-sm btn-dark">
-                                                        <i class="fa-solid fa-plus"></i> Mitra
-                                                    </button>
-                                                </section>
-                                            </div>
-                                            <!--<div>
-                                                <table class="table table-hover" >
+                                                <input name="activity_id" value="{{ $activity->id }}" hidden></input>
+                                                <table class="table table-hover" id="table2">
                                                     <thead>
                                                         <tr>
-                                                            <th>Nama Mitra</th>
+                                                            <th>#</th>
                                                             <th>Jabatan</th>
-                                                            <th>Beban</th>
-                                                            <th>Harga Satuan</th>
+                                                            <th>Nama Mitra</th>
+                                                            <th>Asal</th>
+                                                            <th>No HP</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody id="table2{{ $activity->id }}">
-                                                        <tr >
+                                                    <tbody>
+                                                        @foreach ($members as $member)
+                                                        <tr>
                                                             <td>
-                                                                <select class="form-select-sm" aria-label=".form-select example" name="member_id[]">
-                                                                @foreach ($members as $member)
-                                                                    <option value="{{ $member->id }}">{{ $member->nama }}</option>
-                                                                @endforeach
-                                                                </select>
+                                                                <input type="checkbox" value="{{ $member->nik }}" name="member_nik[]"/>
                                                             </td>
                                                             <td>
-                                                                <input type="text" class="form-control form-control-sm" name="jabatan[]"/>
+                                                                <input type="text" value="" class="form-control form-control-sm" name="jabatan[]" style="width: 70px;"/>
                                                             </td>
                                                             <td>
-                                                                <input type="number" class="form-control form-control-sm" name="beban[]"/>
+                                                                {{ $member->nama }}
                                                             </td>
                                                             <td>
-                                                                <input type="number" class="form-control form-control-sm" name="harga[]"/> 
+                                                                <section class="float-top text" style="font-weight: bold;">
+                                                                    {{ $member->asal_kec }}
+                                                                </section>
+                                                                <section class="float-bottom" style="font-size: 12px;">
+                                                                    {{ $member->asal_des }}
+                                                                </section>
                                                             </td>
-                                                            <td></td>
+                                                            <td>
+                                                                {{ $member->nohp }} 
+                                                            </td>
                                                         </tr>
-
-                                                        <script>
+                                                        @endforeach
+                                                        <!--<script>
                                                             function addRow (top) {
                                                             //let modal = document.getElementById("tambahMember{{ $activity->id }}");
                                                             let table = document.getElementById("table2{{ $activity->id }}");
@@ -392,25 +388,15 @@
                                                             function deleteRoww() {
                                                                 document.getElementById("table2{{ $activity->id }}").deleteRow(1);
                                                             }
-                                                        </script>
+                                                        </script>-->
                                                     </tbody>
                                                 </table>
-                                            </div>-->
-                                            <div>
-                                                <form action="{{ route('import_excel') }}" method=POST enctype="multipart/form-data">
-                                                    @csrf
-                                                        <input name="activity_id" value="{{ $activity->id }}" hidden></input>
-                                                        <input type="file" name="file" class="form-control form-control-sm"></input>
-                                                            
-                                                
-                                            </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
                                             <button type="submit" class="btn btn-primary">Simpan</button>
-                                        </form>
                                         </div>
-                                        
+                                            </form>
                                     </div>
                                 </div>
                             </div>

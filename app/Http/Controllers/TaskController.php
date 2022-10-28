@@ -38,19 +38,18 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        /*$taskDataAll = $request->member_id;
+        $members = $request->member_nik;
 
-        foreach ($taskDataAll as $key => $taskData) {
+        foreach ($members as $key => $taskData) {
             $input['member_id'] = $taskData;
             $input['activity_id'] = $request->activity_id;
             $input['jabatan'] = Str::upper($request->jabatan[$key]);
-            $input['harga'] = $request->harga[$key];
-            $input['beban'] = $request->beban[$key];
+            
             
             Task::create($input);
         }
 
-        return redirect()->route('daftar-kegiatan.index');*/
+        return redirect()->route('daftar-kegiatan.index');
     }
     
 
