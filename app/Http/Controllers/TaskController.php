@@ -45,7 +45,6 @@ class TaskController extends Controller
             $input['activity_id'] = $request->activity_id;
             $input['jabatan'] = Str::upper($request->jabatan[$key]);
             
-            
             Task::create($input);
         }
 

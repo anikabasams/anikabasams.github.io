@@ -67,7 +67,9 @@ class ActivityController extends Controller
             'judul' =>  Str::title($request->judul),
             'mulai' =>  $request->mulai,
             'selesai' =>  $request->selesai,
-            'satuan' => $request->satuan, 
+            'satuan' => $request->satuan,
+            'satuan' => $request->beban, 
+            'satuan' => $request->satuan,
         ]);
 
         return redirect()->route('daftar-kegiatan.index');

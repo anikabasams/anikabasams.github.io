@@ -155,22 +155,19 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                         <h5 class="modal-title" id="lihatmitralabel">Daftar Mitra</h5>
+                                        <b style="margin: 0.1em 0 0 1em;">{{ $activity->judul }}</b>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body mb-3">
-                                            <form>
-                                                <div class="mb-3">
-                                                    <input type="text" class="form-control" value="{{ $activity->judul }}" readonly>
-                                                </div>
-                                                <div class="float-end mb-3 text-warning" style="font-size: 12px;">
-                                                    Pastikan status semua mitra berwarna hijau
-                                                </div>
-                                            </form>
+                                            <div class="float-start mb-3 text-success" style="font-size: 12px;">
+                                                Pastikan status semua mitra berwarna hijau
+                                            </div>
                                             <div>
                                                 <table class="table table-hover" id="table1">
                                                     <thead>
                                                         <tr>
                                                             <th>Nama Mitra</th>
+                                                            <th>Jabatan</th>
                                                             <th>Beban</th>
                                                             <th>Harga Satuan</th>
                                                             <th>Total</th>
@@ -182,6 +179,9 @@
                                                         <tr>
                                                             <td>
                                                                 {{ \App\Models\Member::where(['nik' => $task->member_id ])->value('nama') }}
+                                                            </td>
+                                                            <td>
+                                                                {{ $task->jabatan }}
                                                             </td>
                                                             <td>
                                                                 {{ $task->beban }}
@@ -347,7 +347,7 @@
                                                                 <input type="checkbox" value="{{ $member->nik }}" name="member_nik[]"/>
                                                             </td>
                                                             <td>
-                                                                <input type="text" value="" class="form-control form-control-sm" name="jabatan[]" style="width: 70px;"/>
+                                                                <input type="text" class="form-control form-control-sm" name="jabatan[]"/>
                                                             </td>
                                                             <td>
                                                                 {{ $member->nama }}
