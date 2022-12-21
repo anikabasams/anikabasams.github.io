@@ -330,7 +330,7 @@
                                             @csrf
 
                                                 <input name="activity_id" value="{{ $activity->id }}" hidden></input>
-                                                <table class="table table-hover" id="table2">
+                                                <table class="table table-hover tmtbl" id="table2">
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
